@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Atividade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contratacao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdMatricula" Type="int" Nullable="false" />
+    <Property Name="DataContratoInicio" Type="datetime" Nullable="false" />
+    <Property Name="DataMatriculaFim" Type="datetime" />
+    <Property Name="DataInclusao" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="int" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+    <Property Name="Endereco" Type="int" Nullable="false" />
+    <Property Name="Complemento" Type="int" />
+  </EntityType>
+  <EntityType Name="Frequencia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdContratacao" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="IsFalta" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'aprendizia3.dbo.GradeProfessor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GradeProfessor">
+    <Key>
+      <PropertyRef Name="IdTurma" />
+      <PropertyRef Name="IdProfessor" />
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="IdProfessor" Type="int" Nullable="false" />
+    <Property Name="IdCurso" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'aprendizia3.dbo.GradeTurma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GradeTurma">
+    <Key>
+      <PropertyRef Name="IdTurma" />
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="IdCurso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAprendiz" Type="int" Nullable="false" />
+    <Property Name="IdResponsavel" Type="int" />
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="DataMatricula" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oficina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="int" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CPFCNPJ" Type="int" Nullable="false" />
+    <Property Name="DataNascimento" Type="datetime" />
+    <Property Name="DataInclusao" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdAtividade" Type="int" Nullable="false" />
+    <Property Name="IdPessoaTipo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoaTipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+    <Property Name="DDD" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Turma">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" />
+    <Property Name="IdOficina" Type="int" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+    <Property Name="IdEstado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TurmaEstado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Contratacao_IdEmpresa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contratacao">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contratacao_IdMatricula">
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+    <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matricula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contratacao">
+        <PropertyRef Name="IdMatricula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_IdPessoa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frequencia_IdContratacao">
+    <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="1" />
+    <End Role="Frequencia" Type="Self.Frequencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contratacao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Frequencia">
+        <PropertyRef Name="IdContratacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeProfessor_IdCurso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradeProfessor">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeProfessor_IdProfessor">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradeProfessor">
+        <PropertyRef Name="IdProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeProfessor_IdTurma">
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradeProfessor">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeTurma_IdCurso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="GradeTurma" Type="Self.GradeTurma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradeTurma">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GradeTurma_IdTurma">
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="GradeTurma" Type="Self.GradeTurma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GradeTurma">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_IdAprendiz">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="IdAprendiz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_IdResponsavel">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="IdResponsavel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_IdTurma">
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_IdAtividade">
+    <End Role="Atividade" Type="Self.Atividade" Multiplicity="1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Atividade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdAtividade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_IdPessoaTipo">
+    <End Role="PessoaTipo" Type="Self.PessoaTipo" Multiplicity="1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PessoaTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdPessoaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefone_IdPessoa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turma_IdEstado">
+    <End Role="TurmaEstado" Type="Self.TurmaEstado" Multiplicity="1" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TurmaEstado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Turma">
+        <PropertyRef Name="IdEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turma_IdOficina">
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Turma">
+        <PropertyRef Name="IdOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataBaseModelStoreContainer">
+    <EntitySet Name="Atividade" EntityType="Self.Atividade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contratacao" EntityType="Self.Contratacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Frequencia" EntityType="Self.Frequencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PessoaTipo" EntityType="Self.PessoaTipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefone" EntityType="Self.Telefone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turma" EntityType="Self.Turma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TurmaEstado" EntityType="Self.TurmaEstado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GradeProfessor" EntityType="Self.GradeProfessor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GradeProfessor].[IdTurma] AS [IdTurma], 
+    [GradeProfessor].[IdProfessor] AS [IdProfessor], 
+    [GradeProfessor].[IdCurso] AS [IdCurso]
+    FROM [dbo].[GradeProfessor] AS [GradeProfessor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GradeTurma" EntityType="Self.GradeTurma" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GradeTurma].[IdTurma] AS [IdTurma], 
+    [GradeTurma].[IdCurso] AS [IdCurso]
+    FROM [dbo].[GradeTurma] AS [GradeTurma]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Contratacao_IdEmpresa" Association="Self.FK_Contratacao_IdEmpresa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Contratacao" EntitySet="Contratacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contratacao_IdMatricula" Association="Self.FK_Contratacao_IdMatricula">
+      <End Role="Matricula" EntitySet="Matricula" />
+      <End Role="Contratacao" EntitySet="Contratacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_IdPessoa" Association="Self.FK_Endereco_IdPessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frequencia_IdContratacao" Association="Self.FK_Frequencia_IdContratacao">
+      <End Role="Contratacao" EntitySet="Contratacao" />
+      <End Role="Frequencia" EntitySet="Frequencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeProfessor_IdCurso" Association="Self.FK_GradeProfessor_IdCurso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeProfessor_IdProfessor" Association="Self.FK_GradeProfessor_IdProfessor">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeProfessor_IdTurma" Association="Self.FK_GradeProfessor_IdTurma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeTurma_IdCurso" Association="Self.FK_GradeTurma_IdCurso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="GradeTurma" EntitySet="GradeTurma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GradeTurma_IdTurma" Association="Self.FK_GradeTurma_IdTurma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="GradeTurma" EntitySet="GradeTurma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_IdAprendiz" Association="Self.FK_Matricula_IdAprendiz">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_IdResponsavel" Association="Self.FK_Matricula_IdResponsavel">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_IdTurma" Association="Self.FK_Matricula_IdTurma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_IdAtividade" Association="Self.FK_Pessoa_IdAtividade">
+      <End Role="Atividade" EntitySet="Atividade" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_IdPessoaTipo" Association="Self.FK_Pessoa_IdPessoaTipo">
+      <End Role="PessoaTipo" EntitySet="PessoaTipo" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefone_IdPessoa" Association="Self.FK_Telefone_IdPessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Telefone" EntitySet="Telefone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turma_IdEstado" Association="Self.FK_Turma_IdEstado">
+      <End Role="TurmaEstado" EntitySet="TurmaEstado" />
+      <End Role="Turma" EntitySet="Turma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turma_IdOficina" Association="Self.FK_Turma_IdOficina">
+      <End Role="Oficina" EntitySet="Oficina" />
+      <End Role="Turma" EntitySet="Turma" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

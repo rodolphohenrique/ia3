@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3fe477fdd3cf4c56b2d917b651b13f7c" Name="Diagram1">
+        <EntityTypeShape EntityType="DataBaseModel.Atividade" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Contratacao" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Curso" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Endereco" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Frequencia" Width="1.5" PointX="7.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Matricula" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Oficina" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Pessoa" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.PessoaTipo" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Telefone" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Turma" Width="1.5" PointX="6" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.TurmaEstado" Width="1.5" PointX="3.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.GradeProfessor" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="DataBaseModel.FK_Pessoa_IdAtividade" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Contratacao_IdEmpresa" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Contratacao_IdMatricula" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Frequencia_IdContratacao" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_GradeProfessor_IdCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Endereco_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Matricula_IdAprendiz" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Matricula_IdResponsavel" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Matricula_IdTurma" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Turma_IdOficina" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_GradeProfessor_IdProfessor" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Pessoa_IdPessoaTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Telefone_IdPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_GradeProfessor_IdTurma" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.FK_Turma_IdEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBaseModel.GradeTurma" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
