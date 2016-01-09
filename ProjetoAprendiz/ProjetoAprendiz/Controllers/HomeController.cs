@@ -13,6 +13,7 @@ namespace ProjetoAprendiz.Controllers
             return View();
         }
 
+        //text
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
