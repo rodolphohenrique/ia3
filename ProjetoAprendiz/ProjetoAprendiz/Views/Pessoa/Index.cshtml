@@ -1,30 +1,65 @@
-﻿@model List<ProjetoAprendiz.Models.PessoaView>
+﻿@model ProjetoAprendiz.Models.PessoaListView
+
+    @{
+        ViewBag.Title = "Pessoas";
+    }
+
+    <h2>Pesquisa de Pessoas</h2>
 
 
-@{
-    ViewBag.Title = "Index";
-}
+   @using (Html.BeginForm("Pesquisar", "Pessoa", FormMethod.Get))
+   {    
+    <div class="form-horizontal">
+        <h4>Filtros</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.Label("Nome")
+                @Html.TextBox("NomeFiltro", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-10">
+                @Html.Label("CPFCNPJ")
+                @Html.TextBox("CPFCNPJFiltro", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-10">
+                @Html.Label("Email")
+                @Html.TextBox("EmailFiltro", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-10">
+                @Html.Label("Tipo")
+                @Html.DropDownList("IdPessoaTipo",  new SelectList(Model.PessoaTipos, "Id", "Descricao"), new { @class = "form-control" })
+            </div>
+        </div>
 
-<h2>Index</h2>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Pesquisar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+   }
 
-
-@Html.ActionLink("Cadastrar", "Create", "Pessoa", new { @class = "btn btn-success btn-sm" })
-
-<table class="table">
-    <tr>
-        <td>Nome</td>
-        <td>CPF/CNPJ</td>
-        <td>Email</td>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    @Html.ActionLink("Cadastrar nova pessoa", "Create", "Pessoa", new { @class = "btn btn-success btn-sm" })
+    <table class="table">
         <tr>
-            <td>@item.Nome</td>
-            <td>@item.CPFCNPJ</td>
-            <td>@item.Email</td>
-            <td>@Html.ActionLink(" Editar", "Edit", "Pessoa", new { idPessoa = @item.Id }, new { @class = "glyphicon glyphicon-pencil" })</td>
-        </tr>        
-    }    
-</table>
+            <td>Nome</td>
+            <td>CPF/CNPJ</td>
+            <td>Email</td>
+            <td>Tipo</td>
+            <td>Data de nascimento</td>
+        </tr>
+
+        @foreach (var item in Model.Pessoas)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.CPFCNPJ</td>
+                <td>@item.Email</td>
+                <td>@item.Tipo.Descricao</td>
+                <td>@item.DataNascimento.ToShortDateString()</td>
+                <td>@Html.ActionLink(" Editar", "Edit", "Pessoa", new { idPessoa = @item.Id }, new { @class = "glyphicon glyphicon-pencil" })</td>
+            </tr>
+        }
+    </table>
 

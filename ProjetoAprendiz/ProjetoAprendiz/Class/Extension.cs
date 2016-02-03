@@ -18,7 +18,8 @@ namespace ProjetoAprendiz.Class
                 Email = data.Email,
                 DataNascimento = (DateTime)data.DataNascimento,
                 DataInclusao = data.DataInclusao,
-                IdPessoaTipo = data.IdPessoaTipo
+                IdPessoaTipo = data.IdPessoaTipo,
+                Tipo = data.PessoaTipo.toPessoaTipo()
             };
         }
 

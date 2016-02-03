@@ -6,29 +6,62 @@
 
 <h2>Edit</h2>
 
+@using (Html.BeginForm("Edit", "Pessoa", FormMethod.Post))
+{
 <div>
     <h4>Oficina</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Nome)
+            @Html.HiddenFor(model => model.Id)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nome)
+            @Html.EditorFor(model => model.Nome)
         </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.DataCriacao)
+        <dt>
+            @Html.DisplayNameFor(model => model.CPFCNPJ)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataCriacao)
-        </dd>*@
+            @Html.EditorFor(model => model.CPFCNPJ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
 
+        <dd>
+            @Html.EditorFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.descricaoTipoPessoa)
+        </dt>
+
+        <dd>
+            @Html.DropDownList("IdPessoaTipo", new SelectList(ProjetoAprendiz.Class.PessoaDBContext.GetAllPessoaTipo(), "Id", "Descricao"), new { @class = "form-control" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.DataNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataInclusao)
+        </dt>
+        <dd>
+            @Html.EditorFor(model => model.DataInclusao)
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Salvar Cadastro" class="btn btn-default" />
+    </div>
+</div>
+}
+<p>    
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -17,6 +17,19 @@ namespace ProjetoAprendiz.Class
             }
         }
 
+        public static List<PessoaView> RecuperarListaPessoaFiltrada(string nomeFiltro, string CnpjCpfFiltro, string EmailFiltro, int idPessoaTipo)
+        {
+            using (var context = new DataBaseEntities())
+            {
+                return context.Pessoa.Where
+                    (x => ((string.IsNullOrEmpty(nomeFiltro) || x.Nome.Contains(nomeFiltro))
+                    && (string.IsNullOrEmpty(CnpjCpfFiltro) || x.CPFCNPJ.ToString().Contains(CnpjCpfFiltro))
+                    && (string.IsNullOrEmpty(EmailFiltro) || x.Email.Contains(EmailFiltro))
+                    && (idPessoaTipo == 0 || x.IdPessoaTipo.Equals(idPessoaTipo))
+                    )).ToList().toPessoasView();
+            }
+        }
+
         public static List<PessoaView> RecuperarListaPessoasCompleta()
         {
             using (var context = new DataBaseEntities())
@@ -45,6 +58,23 @@ namespace ProjetoAprendiz.Class
             }
         }
 
+        public static void Editar(PessoaView pessoa)
+        {
+            using (var context = new DataBaseEntities())
+            {
+                var item = context.Pessoa.Find(pessoa.Id);
+
+                item.Nome = pessoa.Nome;
+                item.Email = pessoa.Email;
+                item.DataInclusao = pessoa.DataInclusao;
+                item.DataNascimento = pessoa.DataNascimento;
+                item.CPFCNPJ = pessoa.CPFCNPJ;
+                item.IdPessoaTipo = pessoa.IdPessoaTipo;
+                
+                context.SaveChanges();
+            }
+        }
+
         public static void Salvar(PessoaView pessoa)
         {
             using (var context = new DataBaseEntities())
@@ -63,6 +93,21 @@ namespace ProjetoAprendiz.Class
                 context.Pessoa.Add(item);
                 context.SaveChanges();
             }
+        }
+
+        public static List<Models.PessoaView> PesquisaPessoa(PessoaView pessoa)
+        {
+            using (var context = new DataBaseEntities())
+            {
+                var queryPessoas = (from p in context.Pessoa
+                                   where p.Nome == pessoa.Nome
+                                   select p).ToList();
+
+                
+
+            }
+            List<PessoaView> listaPessoaView = new List<PessoaView>();
+            return listaPessoaView;
         }
 
     }

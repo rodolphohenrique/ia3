@@ -144,6 +144,7 @@
     <Compile Include="Controllers\MatriculaController.cs" />
     <Compile Include="Controllers\OficinaController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\TurmaController.cs" />
     <Compile Include="Curso.cs">
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
@@ -179,6 +180,7 @@
     </Compile>
     <Compile Include="Models\MatriculaView.cs" />
     <Compile Include="Models\OficinaView.cs" />
+    <Compile Include="Models\PessoaListView.cs" />
     <Compile Include="Models\PessoaTipo.cs" />
     <Compile Include="Models\PessoaView.cs" />
     <Compile Include="Models\TurmaView.cs" />
@@ -263,6 +265,7 @@
     <Content Include="Views\Pessoa\Create.cshtml" />
     <Content Include="Views\Pessoa\Edit.cshtml" />
     <Content Include="Views\Matricula\Index.cshtml" />
+    <Content Include="Views\Turma\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
