@@ -1,0 +1,156 @@
+CREATE TABLE PessoaTipo (
+	Id INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Atividade (
+	Id INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(50) NOT NULL	
+)
+
+CREATE TABLE Pessoa (
+	Id INT PRIMARY KEY IDENTITY,	
+	Nome VARCHAR(100) NOT NULL,	
+	CPFCNPJ INT NOT NULL,
+	DataNascimento DATETIME,
+	DataInclusao DATETIME NOT NULL,
+	Email VARCHAR(100) NOT NULL,
+	IdAtividade INT	NOT NULL,
+	IdPessoaTipo INT NOT NULL
+)
+
+CREATE TABLE Telefone (
+	Id INT PRIMARY KEY IDENTITY,
+	IdPessoa INT NOT NULL,
+	DDD INT NOT NULL,
+	Numero INT NOT NULL
+)
+
+
+CREATE TABLE Endereco (
+	Id INT PRIMARY KEY IDENTITY,
+	IdPessoa INT NOT NULL,
+	Endereco INT NOT NULL,
+	Complemento INT
+)
+
+
+CREATE TABLE Curso (
+	Id INT PRIMARY KEY IDENTITY,	 
+	Nome INT NOT NULL,
+	DataCriacao DATETIME NOT NULL
+)
+
+
+CREATE TABLE Oficina (
+	Id INT PRIMARY KEY IDENTITY,	 
+	Nome INT NOT NULL,
+	DataCriacao DATETIME NOT NULL
+)
+
+CREATE TABLE TurmaEstado (
+	Id INT PRIMARY KEY IDENTITY,	 
+	Descricao VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Turma (
+	Id INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(50) NOT NULL,
+	Descricao VARCHAR(50), 
+	IdOficina INT NOT NULL,
+	DataCriacao DATETIME NOT NULL,
+	IdEstado INT NOT NULL		
+)
+
+CREATE TABLE Matricula (
+	Id INT PRIMARY KEY IDENTITY,	 
+	IdAprendiz INT NOT NULL,
+	IdResponsavel INT,
+	IdTurma INT NOT NULL,
+	DataMatricula DATETIME NOT NULL
+)
+
+CREATE TABLE GradeTurma (
+	IdTurma INT NOT NULL,
+	IdCurso INT NOT NULL
+)
+
+CREATE TABLE GradeProfessor (
+	IdTurma INT NOT NULL,
+	IdProfessor INT NOT NULL,
+	IdCurso INT NOT NULL
+)
+
+CREATE TABLE Contratacao (
+	Id INT PRIMARY KEY IDENTITY,
+	IdEmpresa INT NOT NULL,
+	IdMatricula INT NOT NULL,
+	DataContratoInicio DATETIME NOT NULL,
+	DataMatriculaFim DATETIME,
+	DataInclusao DATETIME NOT NULL
+)
+
+CREATE TABLE Frequencia (
+	Id INT PRIMARY KEY IDENTITY,
+	IdContratacao INT NOT NULL,
+	Data DATETIME NOT NULL,
+	IsFalta BIT NOT NULL
+)
+
+
+
+
+ALTER TABLE Pessoa
+ADD CONSTRAINT FK_Pessoa_IdPessoaTipo FOREIGN KEY (IdPessoaTipo) REFERENCES PessoaTipo(Id)
+
+ALTER TABLE Pessoa
+ADD CONSTRAINT FK_Pessoa_IdAtividade FOREIGN KEY (IdAtividade) REFERENCES Atividade(Id)
+
+ALTER TABLE Telefone
+ADD CONSTRAINT FK_Telefone_IdPessoa FOREIGN KEY (IdPessoa) REFERENCES Pessoa(Id)
+
+ALTER TABLE Endereco
+ADD CONSTRAINT FK_Endereco_IdPessoa FOREIGN KEY (IdPessoa) REFERENCES Pessoa(Id)
+GO
+
+ALTER TABLE Turma
+ADD CONSTRAINT FK_Turma_IdOficina FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
+GO
+
+ALTER TABLE Turma
+ADD CONSTRAINT FK_Turma_IdEstado FOREIGN KEY (IdEstado) REFERENCES TurmaEstado(Id)
+GO
+
+ALTER TABLE Matricula
+ADD CONSTRAINT FK_Matricula_IdAprendiz FOREIGN KEY (IdAprendiz) REFERENCES Pessoa(Id)
+GO
+ALTER TABLE Matricula
+ADD CONSTRAINT FK_Matricula_IdResponsavel FOREIGN KEY (IdResponsavel) REFERENCES Pessoa(Id)
+GO
+ALTER TABLE Matricula
+ADD CONSTRAINT FK_Matricula_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+GO
+ALTER TABLE GradeTurma
+ADD CONSTRAINT FK_GradeTurma_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+GO
+ALTER TABLE GradeTurma
+ADD CONSTRAINT FK_GradeTurma_IdCurso FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
+GO
+ALTER TABLE GradeProfessor
+ADD CONSTRAINT FK_GradeProfessor_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+GO
+ALTER TABLE GradeProfessor
+ADD CONSTRAINT FK_GradeProfessor_IdCurso FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
+GO
+ALTER TABLE GradeProfessor
+ADD CONSTRAINT FK_GradeProfessor_IdProfessor FOREIGN KEY (IdProfessor) REFERENCES Pessoa(Id)
+GO
+ALTER TABLE Contratacao
+ADD CONSTRAINT FK_Contratacao_IdEmpresa FOREIGN KEY (IdEmpresa) REFERENCES Pessoa(Id)
+GO
+ALTER TABLE Contratacao
+ADD CONSTRAINT FK_Contratacao_IdMatricula FOREIGN KEY (IdMatricula) REFERENCES Matricula(Id)
+GO
+ALTER TABLE Frequencia
+ADD CONSTRAINT FK_Frequencia_IdContratacao FOREIGN KEY (IdContratacao) REFERENCES Contratacao(Id)
+GO

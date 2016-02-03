@@ -34,8 +34,6 @@ namespace ProjetoAprendiz
         public virtual DbSet<Oficina> Oficina { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
         public virtual DbSet<PessoaTipo> PessoaTipo { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Telefone> Telefone { get; set; }
         public virtual DbSet<Turma> Turma { get; set; }
         public virtual DbSet<TurmaEstado> TurmaEstado { get; set; }
         public virtual DbSet<GradeProfessor> GradeProfessor { get; set; }

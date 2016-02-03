@@ -22,7 +22,6 @@ namespace ProjetoAprendiz
             this.Matricula = new HashSet<Matricula>();
             this.Matricula1 = new HashSet<Matricula>();
             this.GradeProfessor = new HashSet<GradeProfessor>();
-            this.Telefone = new HashSet<Telefone>();
         }
     
         public int Id { get; set; }
@@ -33,6 +32,8 @@ namespace ProjetoAprendiz
         public string Email { get; set; }
         public int IdAtividade { get; set; }
         public int IdPessoaTipo { get; set; }
+        public string TelefoneFixo { get; set; }
+        public string TelefoneCelular { get; set; }
     
         public virtual Atividade Atividade { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -46,7 +47,5 @@ namespace ProjetoAprendiz
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GradeProfessor> GradeProfessor { get; set; }
         public virtual PessoaTipo PessoaTipo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Telefone> Telefone { get; set; }
     }
 }
