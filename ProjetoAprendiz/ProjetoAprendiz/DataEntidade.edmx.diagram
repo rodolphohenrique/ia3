@@ -14,8 +14,6 @@
         <EntityTypeShape EntityType="DataBaseModel.Oficina" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseModel.Pessoa" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseModel.PessoaTipo" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseModel.Telefone" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseModel.Turma" Width="1.5" PointX="6" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseModel.TurmaEstado" Width="1.5" PointX="3.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseModel.GradeProfessor" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
@@ -31,7 +29,6 @@
         <AssociationConnector Association="DataBaseModel.FK_Turma_IdOficina" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseModel.FK_GradeProfessor_IdProfessor" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseModel.FK_Pessoa_IdPessoaTipo" ManuallyRouted="false" />
-        <AssociationConnector Association="DataBaseModel.FK_Telefone_IdPessoa" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseModel.FK_GradeProfessor_IdTurma" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseModel.FK_Turma_IdEstado" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseModel.GradeTurma" ManuallyRouted="false" />
