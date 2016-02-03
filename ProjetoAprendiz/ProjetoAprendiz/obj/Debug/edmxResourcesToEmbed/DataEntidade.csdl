@@ -71,7 +71,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" Nullable="false" />
     <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Turma" Relationship="Self.FK_Turma_IdOficina" FromRole="Oficina" ToRole="Turma" />
   </EntityType>

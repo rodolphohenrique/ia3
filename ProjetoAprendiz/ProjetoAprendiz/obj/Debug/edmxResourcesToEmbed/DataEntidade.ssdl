@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+<Schema Namespace="DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Atividade">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Descricao" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Contratacao">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdEmpresa" Nullable="false" Type="int" />
-    <Property Name="IdMatricula" Nullable="false" Type="int" />
-    <Property Name="DataContratoInicio" Nullable="false" Type="datetime" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdMatricula" Type="int" Nullable="false" />
+    <Property Name="DataContratoInicio" Type="datetime" Nullable="false" />
     <Property Name="DataMatriculaFim" Type="datetime" />
-    <Property Name="DataInclusao" Nullable="false" Type="datetime" />
+    <Property Name="DataInclusao" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Curso">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Nome" Nullable="false" Type="int" />
-    <Property Name="DataCriacao" Nullable="false" Type="datetime" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="int" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Endereco">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdPessoa" Nullable="false" Type="int" />
-    <Property Name="Endereco" Nullable="false" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+    <Property Name="Endereco" Type="int" Nullable="false" />
     <Property Name="Complemento" Type="int" />
   </EntityType>
   <EntityType Name="Frequencia">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdContratacao" Nullable="false" Type="int" />
-    <Property Name="Data" Nullable="false" Type="datetime" />
-    <Property Name="IsFalta" Nullable="false" Type="bit" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdContratacao" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="IsFalta" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DATA\DATABASE.MDF.dbo.GradeProfessor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -52,9 +52,9 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
       <PropertyRef Name="IdProfessor" />
       <PropertyRef Name="IdCurso" />
     </Key>
-    <Property Name="IdTurma" Nullable="false" Type="int" />
-    <Property Name="IdProfessor" Nullable="false" Type="int" />
-    <Property Name="IdCurso" Nullable="false" Type="int" />
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="IdProfessor" Type="int" Nullable="false" />
+    <Property Name="IdCurso" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DATA\DATABASE.MDF.dbo.GradeTurma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -63,70 +63,70 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
       <PropertyRef Name="IdTurma" />
       <PropertyRef Name="IdCurso" />
     </Key>
-    <Property Name="IdTurma" Nullable="false" Type="int" />
-    <Property Name="IdCurso" Nullable="false" Type="int" />
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="IdCurso" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Matricula">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdAprendiz" Nullable="false" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAprendiz" Type="int" Nullable="false" />
     <Property Name="IdResponsavel" Type="int" />
-    <Property Name="IdTurma" Nullable="false" Type="int" />
-    <Property Name="DataMatricula" Nullable="false" Type="datetime" />
+    <Property Name="IdTurma" Type="int" Nullable="false" />
+    <Property Name="DataMatricula" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Oficina">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Nome" Nullable="false" Type="int" />
-    <Property Name="DataCriacao" Nullable="false" Type="datetime" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Nome" Nullable="false" MaxLength="100" Type="varchar" />
-    <Property Name="CPFCNPJ" Nullable="false" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CPFCNPJ" Type="int" Nullable="false" />
     <Property Name="DataNascimento" Type="datetime" />
-    <Property Name="DataInclusao" Nullable="false" Type="datetime" />
-    <Property Name="Email" Nullable="false" MaxLength="100" Type="varchar" />
-    <Property Name="IdAtividade" Nullable="false" Type="int" />
-    <Property Name="IdPessoaTipo" Nullable="false" Type="int" />
-    <Property Name="TelefoneFixo" MaxLength="50" Type="varchar" />
-    <Property Name="TelefoneCelular" MaxLength="50" Type="varchar" />
+    <Property Name="DataInclusao" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdAtividade" Type="int" Nullable="false" />
+    <Property Name="IdPessoaTipo" Type="int" Nullable="false" />
+    <Property Name="TelefoneFixo" Type="varchar" MaxLength="50" />
+    <Property Name="TelefoneCelular" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PessoaTipo">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Descricao" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Turma">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Nome" Nullable="false" MaxLength="50" Type="varchar" />
-    <Property Name="Descricao" MaxLength="50" Type="varchar" />
-    <Property Name="IdOficina" Nullable="false" Type="int" />
-    <Property Name="DataCriacao" Nullable="false" Type="datetime" />
-    <Property Name="IdEstado" Nullable="false" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" />
+    <Property Name="IdOficina" Type="int" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+    <Property Name="IdEstado" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TurmaEstado">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Descricao" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Contratacao_IdEmpresa">
-    <End Type="Self.Pessoa" Multiplicity="1" Role="Pessoa" />
-    <End Type="Self.Contratacao" Multiplicity="*" Role="Contratacao" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pessoa">
         <PropertyRef Name="Id" />
@@ -137,8 +137,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Contratacao_IdMatricula">
-    <End Type="Self.Matricula" Multiplicity="1" Role="Matricula" />
-    <End Type="Self.Contratacao" Multiplicity="*" Role="Contratacao" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+    <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Matricula">
         <PropertyRef Name="Id" />
@@ -149,8 +149,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Endereco_IdPessoa">
-    <End Type="Self.Pessoa" Multiplicity="1" Role="Pessoa" />
-    <End Type="Self.Endereco" Multiplicity="*" Role="Endereco" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pessoa">
         <PropertyRef Name="Id" />
@@ -161,8 +161,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Frequencia_IdContratacao">
-    <End Type="Self.Contratacao" Multiplicity="1" Role="Contratacao" />
-    <End Type="Self.Frequencia" Multiplicity="*" Role="Frequencia" />
+    <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="1" />
+    <End Role="Frequencia" Type="Self.Frequencia" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Contratacao">
         <PropertyRef Name="Id" />
@@ -173,8 +173,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeProfessor_IdCurso">
-    <End Type="Self.Curso" Multiplicity="1" Role="Curso" />
-    <End Type="Self.GradeProfessor" Multiplicity="*" Role="GradeProfessor" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Curso">
         <PropertyRef Name="Id" />
@@ -185,8 +185,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeProfessor_IdProfessor">
-    <End Type="Self.Pessoa" Multiplicity="1" Role="Pessoa" />
-    <End Type="Self.GradeProfessor" Multiplicity="*" Role="GradeProfessor" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pessoa">
         <PropertyRef Name="Id" />
@@ -197,8 +197,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeProfessor_IdTurma">
-    <End Type="Self.Turma" Multiplicity="1" Role="Turma" />
-    <End Type="Self.GradeProfessor" Multiplicity="*" Role="GradeProfessor" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Turma">
         <PropertyRef Name="Id" />
@@ -209,8 +209,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeTurma_IdCurso">
-    <End Type="Self.Curso" Multiplicity="1" Role="Curso" />
-    <End Type="Self.GradeTurma" Multiplicity="*" Role="GradeTurma" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="GradeTurma" Type="Self.GradeTurma" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Curso">
         <PropertyRef Name="Id" />
@@ -221,8 +221,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeTurma_IdTurma">
-    <End Type="Self.Turma" Multiplicity="1" Role="Turma" />
-    <End Type="Self.GradeTurma" Multiplicity="*" Role="GradeTurma" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="GradeTurma" Type="Self.GradeTurma" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Turma">
         <PropertyRef Name="Id" />
@@ -233,8 +233,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Matricula_IdAprendiz">
-    <End Type="Self.Pessoa" Multiplicity="1" Role="Pessoa" />
-    <End Type="Self.Matricula" Multiplicity="*" Role="Matricula" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pessoa">
         <PropertyRef Name="Id" />
@@ -245,8 +245,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Matricula_IdResponsavel">
-    <End Type="Self.Pessoa" Multiplicity="0..1" Role="Pessoa" />
-    <End Type="Self.Matricula" Multiplicity="*" Role="Matricula" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pessoa">
         <PropertyRef Name="Id" />
@@ -257,8 +257,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Matricula_IdTurma">
-    <End Type="Self.Turma" Multiplicity="1" Role="Turma" />
-    <End Type="Self.Matricula" Multiplicity="*" Role="Matricula" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Turma">
         <PropertyRef Name="Id" />
@@ -269,8 +269,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Pessoa_IdAtividade">
-    <End Type="Self.Atividade" Multiplicity="1" Role="Atividade" />
-    <End Type="Self.Pessoa" Multiplicity="*" Role="Pessoa" />
+    <End Role="Atividade" Type="Self.Atividade" Multiplicity="1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Atividade">
         <PropertyRef Name="Id" />
@@ -281,8 +281,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Pessoa_IdPessoaTipo">
-    <End Type="Self.PessoaTipo" Multiplicity="1" Role="PessoaTipo" />
-    <End Type="Self.Pessoa" Multiplicity="*" Role="Pessoa" />
+    <End Role="PessoaTipo" Type="Self.PessoaTipo" Multiplicity="1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PessoaTipo">
         <PropertyRef Name="Id" />
@@ -293,8 +293,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Turma_IdEstado">
-    <End Type="Self.TurmaEstado" Multiplicity="1" Role="TurmaEstado" />
-    <End Type="Self.Turma" Multiplicity="*" Role="Turma" />
+    <End Role="TurmaEstado" Type="Self.TurmaEstado" Multiplicity="1" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TurmaEstado">
         <PropertyRef Name="Id" />
@@ -305,8 +305,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Turma_IdOficina">
-    <End Type="Self.Oficina" Multiplicity="1" Role="Oficina" />
-    <End Type="Self.Turma" Multiplicity="*" Role="Turma" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Oficina">
         <PropertyRef Name="Id" />
@@ -342,68 +342,68 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     FROM [dbo].[GradeTurma] AS [GradeTurma]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_Contratacao_IdEmpresa" Association="Self.FK_Contratacao_IdEmpresa">
-      <End EntitySet="Pessoa" Role="Pessoa" />
-      <End EntitySet="Contratacao" Role="Contratacao" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Contratacao" EntitySet="Contratacao" />
     </AssociationSet>
     <AssociationSet Name="FK_Contratacao_IdMatricula" Association="Self.FK_Contratacao_IdMatricula">
-      <End EntitySet="Matricula" Role="Matricula" />
-      <End EntitySet="Contratacao" Role="Contratacao" />
+      <End Role="Matricula" EntitySet="Matricula" />
+      <End Role="Contratacao" EntitySet="Contratacao" />
     </AssociationSet>
     <AssociationSet Name="FK_Endereco_IdPessoa" Association="Self.FK_Endereco_IdPessoa">
-      <End EntitySet="Pessoa" Role="Pessoa" />
-      <End EntitySet="Endereco" Role="Endereco" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Endereco" EntitySet="Endereco" />
     </AssociationSet>
     <AssociationSet Name="FK_Frequencia_IdContratacao" Association="Self.FK_Frequencia_IdContratacao">
-      <End EntitySet="Contratacao" Role="Contratacao" />
-      <End EntitySet="Frequencia" Role="Frequencia" />
+      <End Role="Contratacao" EntitySet="Contratacao" />
+      <End Role="Frequencia" EntitySet="Frequencia" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdCurso" Association="Self.FK_GradeProfessor_IdCurso">
-      <End EntitySet="Curso" Role="Curso" />
-      <End EntitySet="GradeProfessor" Role="GradeProfessor" />
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdProfessor" Association="Self.FK_GradeProfessor_IdProfessor">
-      <End EntitySet="Pessoa" Role="Pessoa" />
-      <End EntitySet="GradeProfessor" Role="GradeProfessor" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdTurma" Association="Self.FK_GradeProfessor_IdTurma">
-      <End EntitySet="Turma" Role="Turma" />
-      <End EntitySet="GradeProfessor" Role="GradeProfessor" />
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeTurma_IdCurso" Association="Self.FK_GradeTurma_IdCurso">
-      <End EntitySet="Curso" Role="Curso" />
-      <End EntitySet="GradeTurma" Role="GradeTurma" />
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="GradeTurma" EntitySet="GradeTurma" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeTurma_IdTurma" Association="Self.FK_GradeTurma_IdTurma">
-      <End EntitySet="Turma" Role="Turma" />
-      <End EntitySet="GradeTurma" Role="GradeTurma" />
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="GradeTurma" EntitySet="GradeTurma" />
     </AssociationSet>
     <AssociationSet Name="FK_Matricula_IdAprendiz" Association="Self.FK_Matricula_IdAprendiz">
-      <End EntitySet="Pessoa" Role="Pessoa" />
-      <End EntitySet="Matricula" Role="Matricula" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Matricula" EntitySet="Matricula" />
     </AssociationSet>
     <AssociationSet Name="FK_Matricula_IdResponsavel" Association="Self.FK_Matricula_IdResponsavel">
-      <End EntitySet="Pessoa" Role="Pessoa" />
-      <End EntitySet="Matricula" Role="Matricula" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Matricula" EntitySet="Matricula" />
     </AssociationSet>
     <AssociationSet Name="FK_Matricula_IdTurma" Association="Self.FK_Matricula_IdTurma">
-      <End EntitySet="Turma" Role="Turma" />
-      <End EntitySet="Matricula" Role="Matricula" />
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="Matricula" EntitySet="Matricula" />
     </AssociationSet>
     <AssociationSet Name="FK_Pessoa_IdAtividade" Association="Self.FK_Pessoa_IdAtividade">
-      <End EntitySet="Atividade" Role="Atividade" />
-      <End EntitySet="Pessoa" Role="Pessoa" />
+      <End Role="Atividade" EntitySet="Atividade" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
     </AssociationSet>
     <AssociationSet Name="FK_Pessoa_IdPessoaTipo" Association="Self.FK_Pessoa_IdPessoaTipo">
-      <End EntitySet="PessoaTipo" Role="PessoaTipo" />
-      <End EntitySet="Pessoa" Role="Pessoa" />
+      <End Role="PessoaTipo" EntitySet="PessoaTipo" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
     </AssociationSet>
     <AssociationSet Name="FK_Turma_IdEstado" Association="Self.FK_Turma_IdEstado">
-      <End EntitySet="TurmaEstado" Role="TurmaEstado" />
-      <End EntitySet="Turma" Role="Turma" />
+      <End Role="TurmaEstado" EntitySet="TurmaEstado" />
+      <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
     <AssociationSet Name="FK_Turma_IdOficina" Association="Self.FK_Turma_IdOficina">
-      <End EntitySet="Oficina" Role="Oficina" />
-      <End EntitySet="Turma" Role="Turma" />
+      <End Role="Oficina" EntitySet="Oficina" />
+      <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
