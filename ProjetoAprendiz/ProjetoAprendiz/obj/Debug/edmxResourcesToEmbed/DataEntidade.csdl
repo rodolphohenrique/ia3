@@ -94,7 +94,8 @@
     <NavigationProperty Name="Matricula1" Relationship="Self.FK_Matricula_IdResponsavel" FromRole="Pessoa" ToRole="Matricula" />
     <NavigationProperty Name="GradeProfessor" Relationship="Self.FK_GradeProfessor_IdProfessor" FromRole="Pessoa" ToRole="GradeProfessor" />
     <NavigationProperty Name="PessoaTipo" Relationship="Self.FK_Pessoa_IdPessoaTipo" FromRole="Pessoa" ToRole="PessoaTipo" />
-    <NavigationProperty Name="Telefone" Relationship="Self.FK_Telefone_IdPessoa" FromRole="Pessoa" ToRole="Telefone" />
+    <Property Name="TelefoneFixo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="PessoaTipo">
     <Key>
@@ -103,26 +104,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Pessoa" Relationship="Self.FK_Pessoa_IdPessoaTipo" FromRole="PessoaTipo" ToRole="Pessoa" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Telefone">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
-    <Property Name="DDD" Type="Int32" Nullable="false" />
-    <Property Name="Numero" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Pessoa" Relationship="Self.FK_Telefone_IdPessoa" FromRole="Telefone" ToRole="Pessoa" />
   </EntityType>
   <EntityType Name="Turma">
     <Key>
@@ -305,18 +286,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Telefone_IdPessoa">
-    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
-    <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pessoa">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Telefone">
-        <PropertyRef Name="IdPessoa" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_GradeProfessor_IdTurma">
     <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
     <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
@@ -355,8 +324,6 @@
     <EntitySet Name="Oficina" EntityType="Self.Oficina" />
     <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
     <EntitySet Name="PessoaTipo" EntityType="Self.PessoaTipo" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Telefone" EntityType="Self.Telefone" />
     <EntitySet Name="Turma" EntityType="Self.Turma" />
     <EntitySet Name="TurmaEstado" EntityType="Self.TurmaEstado" />
     <EntitySet Name="GradeProfessor" EntityType="Self.GradeProfessor" />
@@ -407,10 +374,6 @@
     <AssociationSet Name="FK_Pessoa_IdPessoaTipo" Association="Self.FK_Pessoa_IdPessoaTipo">
       <End Role="PessoaTipo" EntitySet="PessoaTipo" />
       <End Role="Pessoa" EntitySet="Pessoa" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Telefone_IdPessoa" Association="Self.FK_Telefone_IdPessoa">
-      <End Role="Pessoa" EntitySet="Pessoa" />
-      <End Role="Telefone" EntitySet="Telefone" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdTurma" Association="Self.FK_GradeProfessor_IdTurma">
       <End Role="Turma" EntitySet="Turma" />

@@ -264,15 +264,10 @@
     <Content Include="Views\Pessoa\Edit.cshtml" />
     <Content Include="Views\Matricula\Index.cshtml" />
     <Content Include="Views\Turma\Index.cshtml" />
-    <Content Include="Views\Oficina\PesquisaOficinaView.cshtml" />
+    <Content Include="Views\Oficina\Index.cshtml" />
+    <Content Include="Views\Oficina\Create.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="App_Data\" />
-=======
-    <Folder Include="Views\Oficina\" />
->>>>>>> origin/master
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
