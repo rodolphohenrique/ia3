@@ -85,3 +85,4 @@ C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\A
 C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Newtonsoft.Json.xml
 C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.dll
 C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.pdb
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.csprojResolveAssemblyReference.cache

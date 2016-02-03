@@ -20,5 +20,16 @@ namespace ProjetoAprendiz.Controllers
         {
             return OficinaContext.GetAllOficina();
         }
+
+
+        public ActionResult Create()
+        {
+            var model = new OficinaView();
+            return View(model);
+        }
+
+       
+
+
     }
 }
