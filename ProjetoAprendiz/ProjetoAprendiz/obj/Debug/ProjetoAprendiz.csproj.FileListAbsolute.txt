@@ -42,3 +42,46 @@ c:\users\henrique\documents\visual studio 2015\Projects\ProjetoAprendiz\ProjetoA
 c:\users\henrique\documents\visual studio 2015\Projects\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.dll
 c:\users\henrique\documents\visual studio 2015\Projects\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.pdb
 C:\Users\Henrique\Documents\Visual Studio 2015\Projects\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.csprojResolveAssemblyReference.cache
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\csc.exe
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\vbc.exe
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\VBCSCompiler.exe
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\ProjetoAprendiz.dll.config
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\ProjetoAprendiz.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\ProjetoAprendiz.pdb
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Antlr3.Runtime.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\EntityFramework.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\EntityFramework.SqlServer.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Newtonsoft.Json.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Helpers.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Mvc.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Optimization.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Razor.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.WebPages.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.WebPages.Razor.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\WebGrease.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\EntityFramework.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\EntityFramework.SqlServer.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Helpers.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Mvc.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Optimization.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.Razor.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.WebPages.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\System.Web.WebPages.Razor.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Antlr3.Runtime.pdb
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\bin\Newtonsoft.Json.xml
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.dll
+C:\Users\Henrique\Documents\GitHub\ia3\ia3\ProjetoAprendiz\ProjetoAprendiz\obj\Debug\ProjetoAprendiz.pdb

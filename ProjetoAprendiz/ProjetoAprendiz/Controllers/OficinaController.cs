@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProjetoAprendiz.Models;
+using ProjetoAprendiz.Class;
 
 namespace ProjetoAprendiz.Controllers
 {
@@ -11,7 +13,12 @@ namespace ProjetoAprendiz.Controllers
         // GET: Oficina
         public ActionResult Index()
         {
-            return View();
+            return View(RecuperaTodasOficinas());
+        }
+
+        private List<OficinaView> RecuperaTodasOficinas()
+        {
+            return OficinaContext.GetAllOficina();
         }
     }
 }

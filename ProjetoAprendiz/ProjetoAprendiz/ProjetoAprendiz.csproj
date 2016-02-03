@@ -266,10 +266,10 @@
     <Content Include="Views\Pessoa\Edit.cshtml" />
     <Content Include="Views\Matricula\Index.cshtml" />
     <Content Include="Views\Turma\Index.cshtml" />
+    <Content Include="Views\Oficina\PesquisaOficinaView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Oficina\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
