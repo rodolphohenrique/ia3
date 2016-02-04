@@ -23,7 +23,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" />
     <Property Name="DataCriacao" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Endereco">
@@ -45,7 +45,7 @@
     <Property Name="IsFalta" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DATA\DATABASE.MDF.dbo.GradeProfessor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'AprendizIa3.dbo.GradeProfessor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="GradeProfessor">
     <Key>
       <PropertyRef Name="IdTurma" />
@@ -57,7 +57,7 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
     <Property Name="IdCurso" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DATA\DATABASE.MDF.dbo.GradeTurma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="GradeTurma">
     <Key>
       <PropertyRef Name="IdTurma" />
@@ -81,8 +81,8 @@ warning 6002: The table/view 'C:\GIT\IA3\PROJETOAPRENDIZ\PROJETOAPRENDIZ\APP_DAT
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>

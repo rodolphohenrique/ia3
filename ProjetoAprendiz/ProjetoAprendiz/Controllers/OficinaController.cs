@@ -28,7 +28,34 @@ namespace ProjetoAprendiz.Controllers
             return View(model);
         }
 
-       
+        [HttpPost]
+        public ActionResult Create(OficinaView oficina)
+        {
+            OficinaContext.Salvar(oficina);
+            return View("Index", RecuperaTodasOficinas());
+        }
+
+
+
+
+        [HttpPost]
+        public ActionResult Edit(OficinaView oficina)
+        {
+            OficinaContext.Editar(oficina);
+            return View("Index", RecuperaTodasOficinas());
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int idOficina)
+        {
+            return View(OficinaContext.GetOficinaByID(idOficina));
+        }
+
+        public ActionResult Delete(int idOficina)
+        {
+            OficinaContext.Deletar(idOficina);
+            return View("Index");
+        }
 
 
     }

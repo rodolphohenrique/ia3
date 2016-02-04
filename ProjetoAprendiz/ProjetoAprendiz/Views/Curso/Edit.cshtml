@@ -1,0 +1,40 @@
+﻿@model ProjetoAprendiz.Models.CursoView
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Curso", FormMethod.Post))
+{
+    <div>
+        <h4>Oficina</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+                @Html.HiddenFor(model => model.Id)
+            </dt>
+
+            <dd>
+                @Html.EditorFor(model => model.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataCriacao)
+            </dt>
+
+            <dd>
+                @Html.EditorFor(model => model.DataCriacao)
+            </dd>
+        </dl>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Salvar Curso" class="btn btn-default" />
+        </div>
+    </div>
+}
+<p>
+    @Html.ActionLink("Voltar", "Index")
+</p>

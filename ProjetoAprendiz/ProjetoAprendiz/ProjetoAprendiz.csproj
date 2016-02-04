@@ -133,6 +133,7 @@
     <Compile Include="Atividade.cs">
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
+    <Compile Include="Class\CursoContext.cs" />
     <Compile Include="Class\Extension.cs" />
     <Compile Include="Class\OficinaContext.cs" />
     <Compile Include="Class\PessoaDBContext.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Contratacao.cs">
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatriculaController.cs" />
     <Compile Include="Controllers\OficinaController.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Matricula.cs">
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CursoView.cs" />
     <Compile Include="Models\MatriculaView.cs" />
     <Compile Include="Models\OficinaView.cs" />
     <Compile Include="Models\PessoaListView.cs" />
@@ -201,7 +204,7 @@
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>    
+  <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="DataEntidade.Context.tt">
@@ -263,10 +266,14 @@
     <Content Include="Views\Oficina\Index.cshtml" />
     <Content Include="Views\Oficina\Create.cshtml" />
     <Content Include="Views\Oficina\PesquisaOficinaView.cshtml" />
+    <Content Include="Views\Oficina\Edit.cshtml" />
+    <Content Include="Views\Curso\Create.cshtml" />
+    <Content Include="Views\Curso\Edit.cshtml" />
+    <Content Include="Views\Curso\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Oficina\" />
+    <Folder Include="Views\TurmaEstado\" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

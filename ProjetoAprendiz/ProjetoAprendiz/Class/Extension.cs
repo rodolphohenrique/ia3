@@ -57,6 +57,23 @@ namespace ProjetoAprendiz.Class
             return data.Select(x => x.toOficina()).ToList();
         }
 
+
+        public static CursoView toCursos(this Curso data)
+        {
+            return new CursoView()
+            {
+                Id = data.Id,
+                Nome = data.Nome,
+                DataCriacao = data.DataCriacao
+            };
+        }
+
+
+        public static List<CursoView> toCursos(this List<Curso> data)
+        {
+            return data.Select(x => x.toCursos()).ToList();
+        }
+
         public static TurmaView toTurma(this Turma data)
         {
             return new TurmaView()

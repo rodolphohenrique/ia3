@@ -5,37 +5,40 @@ using System.Web;
 using ProjetoAprendiz.Models;
 using ProjetoAprendiz.Class;
 
+
+
 namespace ProjetoAprendiz.Class
 {
-    public static class OficinaContext
+    public static class CursoContext
     {
-        public static OficinaView GetOficinaByID(int id)
+
+        public static CursoView GetCursoByID(int id)
         {
             using (var context = new DataBaseEntities())
             {
-                return context.Oficina.Find(id).toOficina();
+                return context.Curso.Find(id).toCursos();
             }
         }
 
-        public static List<OficinaView> GetAllOficina()
+        public static List<CursoView> GetAllCursos()
         {
             using (var context = new DataBaseEntities())
             {
-                return context.Oficina.ToList().toOficinas();
+                return context.Curso.ToList().toCursos();
             }
         }
 
-        public static void Salvar(OficinaView oficina)
+        public static void Salvar(CursoView curso)
         {
             using (var context = new DataBaseEntities())
             {
-                var item = new Oficina()
+                var item = new Curso()
                 {
-                    Nome = oficina.Nome,
-                    DataCriacao = oficina.DataCriacao
+                    Nome = curso.Nome,
+                    DataCriacao = curso.DataCriacao
                 };
 
-                context.Oficina.Add(item);
+                context.Curso.Add(item);
                 context.SaveChanges();
             }
         }
@@ -44,22 +47,22 @@ namespace ProjetoAprendiz.Class
         {
             using (var context = new DataBaseEntities())
             {
-                var item = context.Oficina.Find(id);
+                var item = context.Curso.Find(id);
 
-                context.Oficina.Remove(item);
+                context.Curso.Remove(item);
                 context.SaveChanges();
             }
         }
 
 
-        public static void Editar(OficinaView oficina)
+        public static void Editar(CursoView curso)
         {
             using (var context = new DataBaseEntities())
             {
-                var item = context.Oficina.Find(oficina.Id);
+                var item = context.Curso.Find(curso.Id);
 
-                item.Nome = oficina.Nome;
-                item.DataCriacao = oficina.DataCriacao;
+                item.Nome = curso.Nome;
+                item.DataCriacao = curso.DataCriacao;
 
                 context.SaveChanges();
             }

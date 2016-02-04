@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoAprendiz.Models
 {
-    public class OficinaView
+    public class CursoView
     {
+
         public int Id { get; set; }
         public string Nome { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
