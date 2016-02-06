@@ -1,3 +1,5 @@
+
+
 CREATE TABLE PessoaTipo (
 	Id INT PRIMARY KEY IDENTITY,
 	Descricao VARCHAR(50) NOT NULL
@@ -16,35 +18,41 @@ CREATE TABLE Pessoa (
 	DataInclusao DATETIME NOT NULL,
 	Email VARCHAR(100) NOT NULL,
 	IdAtividade INT	NOT NULL,
-	IdPessoaTipo INT NOT NULL
+	IdPessoaTipo INT NOT NULL,
+	IdTelefone INT,
+	IdEndereco INT
 )
 
 CREATE TABLE Telefone (
-	Id INT PRIMARY KEY IDENTITY,
-	IdPessoa INT NOT NULL,
-	DDD INT NOT NULL,
-	Numero INT NOT NULL
+	Id INT PRIMARY KEY IDENTITY,	
+	NumeroFixo VARCHAR(50) NOT NULL,
+	NumeroCelular VARCHAR(50) NOT NULL
 )
 
 
 CREATE TABLE Endereco (
-	Id INT PRIMARY KEY IDENTITY,
-	IdPessoa INT NOT NULL,
-	Endereco INT NOT NULL,
-	Complemento INT
+	Id INT PRIMARY KEY IDENTITY,	
+	Endereco VARCHAR(50),
+	Complemento VARCHAR(50),
+	Numero VARCHAR(50),
+	Cidade VARCHAR(50),
+	Bairro VARCHAR(50),
+	Estado VARCHAR(50),
+	CEP VARCHAR(50),
+	Pais VARCHAR(50),
 )
 
 
 CREATE TABLE Curso (
 	Id INT PRIMARY KEY IDENTITY,	 
-	Nome INT NOT NULL,
+	Nome  VARCHAR(50) NOT NULL,
 	DataCriacao DATETIME NOT NULL
 )
 
 
 CREATE TABLE Oficina (
 	Id INT PRIMARY KEY IDENTITY,	 
-	Nome INT NOT NULL,
+	Nome  VARCHAR(50) NOT NULL,
 	DataCriacao DATETIME NOT NULL
 )
 
@@ -57,7 +65,7 @@ CREATE TABLE Turma (
 	Id INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR(50) NOT NULL,
 	Descricao VARCHAR(50), 
-	IdOficina INT NOT NULL,
+	IdCurso INT NOT NULL,
 	DataCriacao DATETIME NOT NULL,
 	IdEstado INT NOT NULL		
 )
@@ -72,13 +80,13 @@ CREATE TABLE Matricula (
 
 CREATE TABLE GradeTurma (
 	IdTurma INT NOT NULL,
-	IdCurso INT NOT NULL
+	IdOficina INT NOT NULL
 )
 
 CREATE TABLE GradeProfessor (
 	IdTurma INT NOT NULL,
 	IdProfessor INT NOT NULL,
-	IdCurso INT NOT NULL
+	IdOficina INT NOT NULL
 )
 
 CREATE TABLE Contratacao (
@@ -106,15 +114,15 @@ ADD CONSTRAINT FK_Pessoa_IdPessoaTipo FOREIGN KEY (IdPessoaTipo) REFERENCES Pess
 ALTER TABLE Pessoa
 ADD CONSTRAINT FK_Pessoa_IdAtividade FOREIGN KEY (IdAtividade) REFERENCES Atividade(Id)
 
-ALTER TABLE Telefone
-ADD CONSTRAINT FK_Telefone_IdPessoa FOREIGN KEY (IdPessoa) REFERENCES Pessoa(Id)
+ALTER TABLE Pessoa
+ADD CONSTRAINT FK_Pessoa_IdTelefone FOREIGN KEY (IdTelefone) REFERENCES Telefone(Id)
 
-ALTER TABLE Endereco
-ADD CONSTRAINT FK_Endereco_IdPessoa FOREIGN KEY (IdPessoa) REFERENCES Pessoa(Id)
+ALTER TABLE Pessoa
+ADD CONSTRAINT FK_Pessoa_IdEndereco FOREIGN KEY (IdEndereco) REFERENCES Endereco(Id)
 GO
 
 ALTER TABLE Turma
-ADD CONSTRAINT FK_Turma_IdOficina FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
+ADD CONSTRAINT FK_Turma_IdOficina FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
 GO
 
 ALTER TABLE Turma
@@ -134,13 +142,13 @@ ALTER TABLE GradeTurma
 ADD CONSTRAINT FK_GradeTurma_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
 GO
 ALTER TABLE GradeTurma
-ADD CONSTRAINT FK_GradeTurma_IdCurso FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
+ADD CONSTRAINT FK_GradeTurma_IdCurso FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
 GO
 ALTER TABLE GradeProfessor
 ADD CONSTRAINT FK_GradeProfessor_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
 GO
 ALTER TABLE GradeProfessor
-ADD CONSTRAINT FK_GradeProfessor_IdCurso FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
+ADD CONSTRAINT FK_GradeProfessor_IdCurso FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
 GO
 ALTER TABLE GradeProfessor
 ADD CONSTRAINT FK_GradeProfessor_IdProfessor FOREIGN KEY (IdProfessor) REFERENCES Pessoa(Id)

@@ -9,9 +9,9 @@ namespace ProjetoAprendiz.Class
 {
     public static class TurmaContext
     {
-        public static TurmaView GetOficinaByID(int id)
+        public static TurmaView GetTurmaByID(int id)
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DataEntidade())
             {
                 return context.Turma.Find(id).toTurma();
             }
@@ -19,7 +19,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<TurmaView> GetAllTurma()
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DataEntidade())
             {
                 return context.Turma.ToList().toTurmas();
             }
@@ -27,15 +27,15 @@ namespace ProjetoAprendiz.Class
 
         public static void Salvar(TurmaView turma)
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DataEntidade())
             {
                 var item = new Turma()
                 {
                     Descricao = turma.Descricao,
                     DataCriacao = turma.DataCriacao,
                     Nome = turma.Nome,
-                    IdEstado = turma.IdEstado,
-                    IdOficina = turma.IdOficina
+                    IdEstado = 1,
+                    IdCurso = turma.IdCurso
                 };
 
                 context.Turma.Add(item);
@@ -45,7 +45,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Deletar(int id)
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DataEntidade())
             {
                 var item = context.Turma.Find(id);
 
@@ -53,5 +53,23 @@ namespace ProjetoAprendiz.Class
                 context.SaveChanges();
             }
         }
+
+
+        public static void Editar(TurmaView turma)
+        {
+            using (var context = new DataEntidade())
+            {
+                var item = context.Turma.Find(turma.Id);
+
+                item.Nome = turma.Nome;
+                item.IdEstado = 1;
+                item.IdCurso = turma.IdCurso;
+                item.DataCriacao = turma.DataCriacao;
+                item.Descricao = turma.Descricao;
+   
+                context.SaveChanges();
+            }
+        }
+
     }
 }

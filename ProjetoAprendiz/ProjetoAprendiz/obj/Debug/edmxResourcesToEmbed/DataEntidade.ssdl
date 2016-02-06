@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DataEntidadeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Atividade">
     <Key>
       <PropertyRef Name="Id" />
@@ -23,7 +23,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DataCriacao" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Endereco">
@@ -31,9 +31,14 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdPessoa" Type="int" Nullable="false" />
-    <Property Name="Endereco" Type="int" Nullable="false" />
-    <Property Name="Complemento" Type="int" />
+    <Property Name="Endereco" Type="varchar" MaxLength="50" />
+    <Property Name="Complemento" Type="varchar" MaxLength="50" />
+    <Property Name="Numero" Type="varchar" MaxLength="50" />
+    <Property Name="Cidade" Type="varchar" MaxLength="50" />
+    <Property Name="Bairro" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="CEP" Type="varchar" MaxLength="50" />
+    <Property Name="Pais" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Frequencia">
     <Key>
@@ -45,26 +50,26 @@
     <Property Name="IsFalta" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'AprendizIa3.dbo.GradeProfessor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'AprendizIA3.dbo.GradeProfessor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="GradeProfessor">
     <Key>
       <PropertyRef Name="IdTurma" />
       <PropertyRef Name="IdProfessor" />
-      <PropertyRef Name="IdCurso" />
+      <PropertyRef Name="IdOficina" />
     </Key>
     <Property Name="IdTurma" Type="int" Nullable="false" />
     <Property Name="IdProfessor" Type="int" Nullable="false" />
-    <Property Name="IdCurso" Type="int" Nullable="false" />
+    <Property Name="IdOficina" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="GradeTurma">
     <Key>
       <PropertyRef Name="IdTurma" />
-      <PropertyRef Name="IdCurso" />
+      <PropertyRef Name="IdOficina" />
     </Key>
     <Property Name="IdTurma" Type="int" Nullable="false" />
-    <Property Name="IdCurso" Type="int" Nullable="false" />
+    <Property Name="IdOficina" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Matricula">
     <Key>
@@ -81,8 +86,8 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DataCriacao" Type="datetime" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>
@@ -96,8 +101,8 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="IdAtividade" Type="int" Nullable="false" />
     <Property Name="IdPessoaTipo" Type="int" Nullable="false" />
-    <Property Name="TelefoneFixo" Type="varchar" MaxLength="50" />
-    <Property Name="TelefoneCelular" Type="varchar" MaxLength="50" />
+    <Property Name="IdTelefone" Type="int" />
+    <Property Name="IdEndereco" Type="int" />
   </EntityType>
   <EntityType Name="PessoaTipo">
     <Key>
@@ -106,6 +111,14 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroFixo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NumeroCelular" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Turma">
     <Key>
       <PropertyRef Name="Id" />
@@ -113,7 +126,7 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Descricao" Type="varchar" MaxLength="50" />
-    <Property Name="IdOficina" Type="int" Nullable="false" />
+    <Property Name="IdCurso" Type="int" Nullable="false" />
     <Property Name="DataCriacao" Type="datetime" Nullable="false" />
     <Property Name="IdEstado" Type="int" Nullable="false" />
   </EntityType>
@@ -148,18 +161,6 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Endereco_IdPessoa">
-    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
-    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pessoa">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Endereco">
-        <PropertyRef Name="IdPessoa" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Frequencia_IdContratacao">
     <End Role="Contratacao" Type="Self.Contratacao" Multiplicity="1" />
     <End Role="Frequencia" Type="Self.Frequencia" Multiplicity="*" />
@@ -173,14 +174,14 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeProfessor_IdCurso">
-    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
     <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Curso">
+      <Principal Role="Oficina">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="GradeProfessor">
-        <PropertyRef Name="IdCurso" />
+        <PropertyRef Name="IdOficina" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -209,14 +210,14 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GradeTurma_IdCurso">
-    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
     <End Role="GradeTurma" Type="Self.GradeTurma" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Curso">
+      <Principal Role="Oficina">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="GradeTurma">
-        <PropertyRef Name="IdCurso" />
+        <PropertyRef Name="IdOficina" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -280,6 +281,18 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Pessoa_IdEndereco">
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endereco">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdEndereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Pessoa_IdPessoaTipo">
     <End Role="PessoaTipo" Type="Self.PessoaTipo" Multiplicity="1" />
     <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
@@ -289,6 +302,18 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       </Principal>
       <Dependent Role="Pessoa">
         <PropertyRef Name="IdPessoaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_IdTelefone">
+    <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telefone">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdTelefone" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -305,18 +330,18 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Turma_IdOficina">
-    <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
     <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Oficina">
+      <Principal Role="Curso">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Turma">
-        <PropertyRef Name="IdOficina" />
+        <PropertyRef Name="IdCurso" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DataBaseModelStoreContainer">
+  <EntityContainer Name="DataEntidadeModelStoreContainer">
     <EntitySet Name="Atividade" EntityType="Self.Atividade" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contratacao" EntityType="Self.Contratacao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
@@ -326,19 +351,20 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
     <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PessoaTipo" EntityType="Self.PessoaTipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefone" EntityType="Self.Telefone" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Turma" EntityType="Self.Turma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TurmaEstado" EntityType="Self.TurmaEstado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GradeProfessor" EntityType="Self.GradeProfessor" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [GradeProfessor].[IdTurma] AS [IdTurma], 
     [GradeProfessor].[IdProfessor] AS [IdProfessor], 
-    [GradeProfessor].[IdCurso] AS [IdCurso]
+    [GradeProfessor].[IdOficina] AS [IdOficina]
     FROM [dbo].[GradeProfessor] AS [GradeProfessor]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="GradeTurma" EntityType="Self.GradeTurma" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [GradeTurma].[IdTurma] AS [IdTurma], 
-    [GradeTurma].[IdCurso] AS [IdCurso]
+    [GradeTurma].[IdOficina] AS [IdOficina]
     FROM [dbo].[GradeTurma] AS [GradeTurma]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_Contratacao_IdEmpresa" Association="Self.FK_Contratacao_IdEmpresa">
@@ -349,16 +375,12 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       <End Role="Matricula" EntitySet="Matricula" />
       <End Role="Contratacao" EntitySet="Contratacao" />
     </AssociationSet>
-    <AssociationSet Name="FK_Endereco_IdPessoa" Association="Self.FK_Endereco_IdPessoa">
-      <End Role="Pessoa" EntitySet="Pessoa" />
-      <End Role="Endereco" EntitySet="Endereco" />
-    </AssociationSet>
     <AssociationSet Name="FK_Frequencia_IdContratacao" Association="Self.FK_Frequencia_IdContratacao">
       <End Role="Contratacao" EntitySet="Contratacao" />
       <End Role="Frequencia" EntitySet="Frequencia" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdCurso" Association="Self.FK_GradeProfessor_IdCurso">
-      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Oficina" EntitySet="Oficina" />
       <End Role="GradeProfessor" EntitySet="GradeProfessor" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdProfessor" Association="Self.FK_GradeProfessor_IdProfessor">
@@ -370,7 +392,7 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       <End Role="GradeProfessor" EntitySet="GradeProfessor" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeTurma_IdCurso" Association="Self.FK_GradeTurma_IdCurso">
-      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Oficina" EntitySet="Oficina" />
       <End Role="GradeTurma" EntitySet="GradeTurma" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeTurma_IdTurma" Association="Self.FK_GradeTurma_IdTurma">
@@ -393,8 +415,16 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       <End Role="Atividade" EntitySet="Atividade" />
       <End Role="Pessoa" EntitySet="Pessoa" />
     </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_IdEndereco" Association="Self.FK_Pessoa_IdEndereco">
+      <End Role="Endereco" EntitySet="Endereco" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
     <AssociationSet Name="FK_Pessoa_IdPessoaTipo" Association="Self.FK_Pessoa_IdPessoaTipo">
       <End Role="PessoaTipo" EntitySet="PessoaTipo" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_IdTelefone" Association="Self.FK_Pessoa_IdTelefone">
+      <End Role="Telefone" EntitySet="Telefone" />
       <End Role="Pessoa" EntitySet="Pessoa" />
     </AssociationSet>
     <AssociationSet Name="FK_Turma_IdEstado" Association="Self.FK_Turma_IdEstado">
@@ -402,7 +432,7 @@ warning 6002: The table/view 'AprendizIa3.dbo.GradeTurma' does not have a primar
       <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
     <AssociationSet Name="FK_Turma_IdOficina" Association="Self.FK_Turma_IdOficina">
-      <End Role="Oficina" EntitySet="Oficina" />
+      <End Role="Curso" EntitySet="Curso" />
       <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
   </EntityContainer>

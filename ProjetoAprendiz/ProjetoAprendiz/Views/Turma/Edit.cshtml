@@ -1,0 +1,60 @@
+﻿@model ProjetoAprendiz.Models.TurmaView
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar Turma</h2>
+
+@using (Html.BeginForm("Edit", "Turma", FormMethod.Post))
+{
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+            @Html.HiddenFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.Descricao)
+        </dd>
+ 
+        <dt>
+            @Html.DisplayNameFor(model => model.listaOficina)
+        </dt>
+
+        <dd>
+            @Html.DropDownList("IdOficina", new SelectList(ProjetoAprendiz.Class.OficinaContext.GetAllOficina(), "Id", "Nome"), new { @class = "form-control" })
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IdEstado)
+        </dt>
+
+        <dd>
+            @Html.DropDownList("IdEstado", new SelectList(ProjetoAprendiz.Class.OficinaContext.GetAllOficina(), "Id", "Descricao"), new { @class = "form-control" })
+        </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCriacao)
+        </dt>
+        <dd>
+            @Html.EditorFor(model => model.DataCriacao)
+        </dd>
+    </dl>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Salvar Cadastro" class="btn btn-default" />
+    </div>
+</div>
+}
+<p>    
+    @Html.ActionLink("Back to List", "Index")
+</p>

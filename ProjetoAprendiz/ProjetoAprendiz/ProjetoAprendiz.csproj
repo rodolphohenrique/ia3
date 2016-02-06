@@ -197,6 +197,9 @@
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telefone.cs">
+      <DependentUpon>DataEntidade.tt</DependentUpon>
+    </Compile>
     <Compile Include="Turma.cs">
       <DependentUpon>DataEntidade.tt</DependentUpon>
     </Compile>
@@ -270,6 +273,8 @@
     <Content Include="Views\Curso\Create.cshtml" />
     <Content Include="Views\Curso\Edit.cshtml" />
     <Content Include="Views\Curso\Index.cshtml" />
+    <Content Include="Views\Turma\Create.cshtml" />
+    <Content Include="Views\Turma\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

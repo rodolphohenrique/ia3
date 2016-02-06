@@ -16,9 +16,9 @@ namespace ProjetoAprendiz
     {
         public int IdTurma { get; set; }
         public int IdProfessor { get; set; }
-        public int IdCurso { get; set; }
+        public int IdOficina { get; set; }
     
-        public virtual Curso Curso { get; set; }
+        public virtual Oficina Oficina { get; set; }
         public virtual Pessoa Pessoa { get; set; }
         public virtual Turma Turma { get; set; }
     }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DataEntidadeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Atividade">
     <Key>
       <PropertyRef Name="Id" />
@@ -27,20 +27,24 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="GradeProfessor" Relationship="Self.FK_GradeProfessor_IdCurso" FromRole="Curso" ToRole="GradeProfessor" />
-    <NavigationProperty Name="Turma" Relationship="Self.GradeTurma" FromRole="Curso" ToRole="Turma" />
+    <NavigationProperty Name="Turma" Relationship="Self.FK_Turma_IdOficina" FromRole="Curso" ToRole="Turma" />
   </EntityType>
   <EntityType Name="Endereco">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
-    <Property Name="Endereco1" Type="Int32" Nullable="false" />
-    <Property Name="Complemento" Type="Int32" />
-    <NavigationProperty Name="Pessoa" Relationship="Self.FK_Endereco_IdPessoa" FromRole="Endereco" ToRole="Pessoa" />
+    <Property Name="Endereco1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK_Pessoa_IdEndereco" FromRole="Endereco" ToRole="Pessoa" />
   </EntityType>
   <EntityType Name="Frequencia">
     <Key>
@@ -71,9 +75,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Turma" Relationship="Self.FK_Turma_IdOficina" FromRole="Oficina" ToRole="Turma" />
+    <NavigationProperty Name="GradeProfessor" Relationship="Self.FK_GradeProfessor_IdCurso" FromRole="Oficina" ToRole="GradeProfessor" />
+    <NavigationProperty Name="Turma" Relationship="Self.GradeTurma" FromRole="Oficina" ToRole="Turma" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>
@@ -87,15 +92,16 @@
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IdAtividade" Type="Int32" Nullable="false" />
     <Property Name="IdPessoaTipo" Type="Int32" Nullable="false" />
+    <Property Name="IdTelefone" Type="Int32" />
+    <Property Name="IdEndereco" Type="Int32" />
     <NavigationProperty Name="Atividade" Relationship="Self.FK_Pessoa_IdAtividade" FromRole="Pessoa" ToRole="Atividade" />
     <NavigationProperty Name="Contratacao" Relationship="Self.FK_Contratacao_IdEmpresa" FromRole="Pessoa" ToRole="Contratacao" />
-    <NavigationProperty Name="Endereco" Relationship="Self.FK_Endereco_IdPessoa" FromRole="Pessoa" ToRole="Endereco" />
+    <NavigationProperty Name="Endereco" Relationship="Self.FK_Pessoa_IdEndereco" FromRole="Pessoa" ToRole="Endereco" />
     <NavigationProperty Name="Matricula" Relationship="Self.FK_Matricula_IdAprendiz" FromRole="Pessoa" ToRole="Matricula" />
     <NavigationProperty Name="Matricula1" Relationship="Self.FK_Matricula_IdResponsavel" FromRole="Pessoa" ToRole="Matricula" />
     <NavigationProperty Name="GradeProfessor" Relationship="Self.FK_GradeProfessor_IdProfessor" FromRole="Pessoa" ToRole="GradeProfessor" />
     <NavigationProperty Name="PessoaTipo" Relationship="Self.FK_Pessoa_IdPessoaTipo" FromRole="Pessoa" ToRole="PessoaTipo" />
-    <Property Name="TelefoneFixo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TelefoneCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Telefone" Relationship="Self.FK_Pessoa_IdTelefone" FromRole="Pessoa" ToRole="Telefone" />
   </EntityType>
   <EntityType Name="PessoaTipo">
     <Key>
@@ -105,6 +111,15 @@
     <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Pessoa" Relationship="Self.FK_Pessoa_IdPessoaTipo" FromRole="PessoaTipo" ToRole="Pessoa" />
   </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroFixo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK_Pessoa_IdTelefone" FromRole="Telefone" ToRole="Pessoa" />
+  </EntityType>
   <EntityType Name="Turma">
     <Key>
       <PropertyRef Name="Id" />
@@ -112,14 +127,14 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="IdOficina" Type="Int32" Nullable="false" />
+    <Property Name="IdCurso" Type="Int32" Nullable="false" />
     <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="IdEstado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_Turma_IdOficina" FromRole="Turma" ToRole="Curso" />
     <NavigationProperty Name="Matricula" Relationship="Self.FK_Matricula_IdTurma" FromRole="Turma" ToRole="Matricula" />
-    <NavigationProperty Name="Oficina" Relationship="Self.FK_Turma_IdOficina" FromRole="Turma" ToRole="Oficina" />
     <NavigationProperty Name="GradeProfessor" Relationship="Self.FK_GradeProfessor_IdTurma" FromRole="Turma" ToRole="GradeProfessor" />
     <NavigationProperty Name="TurmaEstado" Relationship="Self.FK_Turma_IdEstado" FromRole="Turma" ToRole="TurmaEstado" />
-    <NavigationProperty Name="Curso" Relationship="Self.GradeTurma" FromRole="Turma" ToRole="Curso" />
+    <NavigationProperty Name="Oficina" Relationship="Self.GradeTurma" FromRole="Turma" ToRole="Oficina" />
   </EntityType>
   <EntityType Name="TurmaEstado">
     <Key>
@@ -133,12 +148,12 @@
     <Key>
       <PropertyRef Name="IdTurma" />
       <PropertyRef Name="IdProfessor" />
-      <PropertyRef Name="IdCurso" />
+      <PropertyRef Name="IdOficina" />
     </Key>
     <Property Name="IdTurma" Type="Int32" Nullable="false" />
     <Property Name="IdProfessor" Type="Int32" Nullable="false" />
-    <Property Name="IdCurso" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Curso" Relationship="Self.FK_GradeProfessor_IdCurso" FromRole="GradeProfessor" ToRole="Curso" />
+    <Property Name="IdOficina" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Oficina" Relationship="Self.FK_GradeProfessor_IdCurso" FromRole="GradeProfessor" ToRole="Oficina" />
     <NavigationProperty Name="Pessoa" Relationship="Self.FK_GradeProfessor_IdProfessor" FromRole="GradeProfessor" ToRole="Pessoa" />
     <NavigationProperty Name="Turma" Relationship="Self.FK_GradeProfessor_IdTurma" FromRole="GradeProfessor" ToRole="Turma" />
   </EntityType>
@@ -190,27 +205,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_GradeProfessor_IdCurso">
+  <Association Name="FK_Turma_IdOficina">
     <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
-    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Curso">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="GradeProfessor">
+      <Dependent Role="Turma">
         <PropertyRef Name="IdCurso" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Endereco_IdPessoa">
-    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
-    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
+  <Association Name="FK_Pessoa_IdEndereco">
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Pessoa">
+      <Principal Role="Endereco">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Endereco">
-        <PropertyRef Name="IdPessoa" />
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdEndereco" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -250,14 +265,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Turma_IdOficina">
+  <Association Name="FK_GradeProfessor_IdCurso">
     <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
-    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
+    <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Oficina">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Turma">
+      <Dependent Role="GradeProfessor">
         <PropertyRef Name="IdOficina" />
       </Dependent>
     </ReferentialConstraint>
@@ -286,6 +301,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Pessoa_IdTelefone">
+    <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telefone">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdTelefone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_GradeProfessor_IdTurma">
     <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
     <End Role="GradeProfessor" Type="Self.GradeProfessor" Multiplicity="*" />
@@ -311,10 +338,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="GradeTurma">
-    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
     <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="DataBaseEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DataEntidade" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Atividade" EntityType="Self.Atividade" />
     <EntitySet Name="Contratacao" EntityType="Self.Contratacao" />
     <EntitySet Name="Curso" EntityType="Self.Curso" />
@@ -324,6 +351,7 @@
     <EntitySet Name="Oficina" EntityType="Self.Oficina" />
     <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
     <EntitySet Name="PessoaTipo" EntityType="Self.PessoaTipo" />
+    <EntitySet Name="Telefone" EntityType="Self.Telefone" />
     <EntitySet Name="Turma" EntityType="Self.Turma" />
     <EntitySet Name="TurmaEstado" EntityType="Self.TurmaEstado" />
     <EntitySet Name="GradeProfessor" EntityType="Self.GradeProfessor" />
@@ -343,13 +371,13 @@
       <End Role="Contratacao" EntitySet="Contratacao" />
       <End Role="Frequencia" EntitySet="Frequencia" />
     </AssociationSet>
-    <AssociationSet Name="FK_GradeProfessor_IdCurso" Association="Self.FK_GradeProfessor_IdCurso">
+    <AssociationSet Name="FK_Turma_IdOficina" Association="Self.FK_Turma_IdOficina">
       <End Role="Curso" EntitySet="Curso" />
-      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
+      <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
-    <AssociationSet Name="FK_Endereco_IdPessoa" Association="Self.FK_Endereco_IdPessoa">
-      <End Role="Pessoa" EntitySet="Pessoa" />
+    <AssociationSet Name="FK_Pessoa_IdEndereco" Association="Self.FK_Pessoa_IdEndereco">
       <End Role="Endereco" EntitySet="Endereco" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
     </AssociationSet>
     <AssociationSet Name="FK_Matricula_IdAprendiz" Association="Self.FK_Matricula_IdAprendiz">
       <End Role="Pessoa" EntitySet="Pessoa" />
@@ -363,9 +391,9 @@
       <End Role="Turma" EntitySet="Turma" />
       <End Role="Matricula" EntitySet="Matricula" />
     </AssociationSet>
-    <AssociationSet Name="FK_Turma_IdOficina" Association="Self.FK_Turma_IdOficina">
+    <AssociationSet Name="FK_GradeProfessor_IdCurso" Association="Self.FK_GradeProfessor_IdCurso">
       <End Role="Oficina" EntitySet="Oficina" />
-      <End Role="Turma" EntitySet="Turma" />
+      <End Role="GradeProfessor" EntitySet="GradeProfessor" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdProfessor" Association="Self.FK_GradeProfessor_IdProfessor">
       <End Role="Pessoa" EntitySet="Pessoa" />
@@ -373,6 +401,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Pessoa_IdPessoaTipo" Association="Self.FK_Pessoa_IdPessoaTipo">
       <End Role="PessoaTipo" EntitySet="PessoaTipo" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_IdTelefone" Association="Self.FK_Pessoa_IdTelefone">
+      <End Role="Telefone" EntitySet="Telefone" />
       <End Role="Pessoa" EntitySet="Pessoa" />
     </AssociationSet>
     <AssociationSet Name="FK_GradeProfessor_IdTurma" Association="Self.FK_GradeProfessor_IdTurma">
@@ -384,7 +416,7 @@
       <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
     <AssociationSet Name="GradeTurma" Association="Self.GradeTurma">
-      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Oficina" EntitySet="Oficina" />
       <End Role="Turma" EntitySet="Turma" />
     </AssociationSet>
   </EntityContainer>

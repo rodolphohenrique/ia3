@@ -19,23 +19,23 @@ namespace ProjetoAprendiz
         {
             this.Matricula = new HashSet<Matricula>();
             this.GradeProfessor = new HashSet<GradeProfessor>();
-            this.Curso = new HashSet<Curso>();
+            this.Oficina = new HashSet<Oficina>();
         }
     
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public int IdOficina { get; set; }
+        public int IdCurso { get; set; }
         public System.DateTime DataCriacao { get; set; }
         public int IdEstado { get; set; }
     
+        public virtual Curso Curso { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Matricula> Matricula { get; set; }
-        public virtual Oficina Oficina { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GradeProfessor> GradeProfessor { get; set; }
         public virtual TurmaEstado TurmaEstado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Curso> Curso { get; set; }
+        public virtual ICollection<Oficina> Oficina { get; set; }
     }
 }

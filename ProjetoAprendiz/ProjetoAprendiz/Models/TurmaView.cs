@@ -11,7 +11,8 @@ namespace ProjetoAprendiz.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public int IdOficina { get; set; }
+        public int IdCurso { get; set; }
+        public List<OficinaView> listaOficina { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime DataCriacao { get; set; }
         public int IdEstado { get; set; }

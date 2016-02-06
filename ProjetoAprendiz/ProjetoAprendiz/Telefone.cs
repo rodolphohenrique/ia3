@@ -12,19 +12,19 @@ namespace ProjetoAprendiz
     using System;
     using System.Collections.Generic;
     
-    public partial class Curso
+    public partial class Telefone
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Curso()
+        public Telefone()
         {
-            this.Turma = new HashSet<Turma>();
+            this.Pessoa = new HashSet<Pessoa>();
         }
     
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public System.DateTime DataCriacao { get; set; }
+        public string NumeroFixo { get; set; }
+        public string NumeroCelular { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turma> Turma { get; set; }
+        public virtual ICollection<Pessoa> Pessoa { get; set; }
     }
 }

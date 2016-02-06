@@ -14,11 +14,23 @@ namespace ProjetoAprendiz
     
     public partial class Endereco
     {
-        public int Id { get; set; }
-        public int IdPessoa { get; set; }
-        public int Endereco1 { get; set; }
-        public Nullable<int> Complemento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Endereco()
+        {
+            this.Pessoa = new HashSet<Pessoa>();
+        }
     
-        public virtual Pessoa Pessoa { get; set; }
+        public int Id { get; set; }
+        public string Endereco1 { get; set; }
+        public string Complemento { get; set; }
+        public string Numero { get; set; }
+        public string Cidade { get; set; }
+        public string Bairro { get; set; }
+        public string Estado { get; set; }
+        public string CEP { get; set; }
+        public string Pais { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pessoa> Pessoa { get; set; }
     }
 }
