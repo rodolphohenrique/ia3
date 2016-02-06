@@ -18,6 +18,7 @@ namespace ProjetoAprendiz
         public Matricula()
         {
             this.Contratacao = new HashSet<Contratacao>();
+            this.FrequenciaOFicina = new HashSet<FrequenciaOFicina>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,7 @@ namespace ProjetoAprendiz
         public virtual Pessoa Pessoa { get; set; }
         public virtual Pessoa Pessoa1 { get; set; }
         public virtual Turma Turma { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FrequenciaOFicina> FrequenciaOFicina { get; set; }
     }
 }

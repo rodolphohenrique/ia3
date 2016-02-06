@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DataEntidadeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DataEntidadeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Atividade">
           <Key>
             <PropertyRef Name="Id" />
@@ -51,6 +51,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdContratacao" Type="int" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="IsFalta" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FrequenciaOFicina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMatricula" Type="int" Nullable="false" />
+          <Property Name="idOficina" Type="int" Nullable="false" />
           <Property Name="Data" Type="datetime" Nullable="false" />
           <Property Name="IsFalta" Type="bit" Nullable="false" />
         </EntityType>
@@ -175,6 +185,30 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
             </Principal>
             <Dependent Role="Frequencia">
               <PropertyRef Name="IdContratacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FrequenciaOFicina_IdMatricula">
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+          <End Role="FrequenciaOFicina" Type="Self.FrequenciaOFicina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FrequenciaOFicina">
+              <PropertyRef Name="idMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FrequenciaOFicina_IdOficina">
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="1" />
+          <End Role="FrequenciaOFicina" Type="Self.FrequenciaOFicina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oficina">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FrequenciaOFicina">
+              <PropertyRef Name="idOficina" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -352,6 +386,7 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
           <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Frequencia" EntityType="Self.Frequencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FrequenciaOFicina" EntityType="Self.FrequenciaOFicina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
@@ -383,6 +418,14 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
           <AssociationSet Name="FK_Frequencia_IdContratacao" Association="Self.FK_Frequencia_IdContratacao">
             <End Role="Contratacao" EntitySet="Contratacao" />
             <End Role="Frequencia" EntitySet="Frequencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FrequenciaOFicina_IdMatricula" Association="Self.FK_FrequenciaOFicina_IdMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="FrequenciaOFicina" EntitySet="FrequenciaOFicina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FrequenciaOFicina_IdOficina" Association="Self.FK_FrequenciaOFicina_IdOficina">
+            <End Role="Oficina" EntitySet="Oficina" />
+            <End Role="FrequenciaOFicina" EntitySet="FrequenciaOFicina" />
           </AssociationSet>
           <AssociationSet Name="FK_GradeProfessor_IdCurso" Association="Self.FK_GradeProfessor_IdCurso">
             <End Role="Oficina" EntitySet="Oficina" />
@@ -441,8 +484,7 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
             <End Role="Turma" EntitySet="Turma" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DataEntidadeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -515,6 +557,7 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
           <NavigationProperty Name="Pessoa" Relationship="Self.FK_Matricula_IdAprendiz" FromRole="Matricula" ToRole="Pessoa" />
           <NavigationProperty Name="Pessoa1" Relationship="Self.FK_Matricula_IdResponsavel" FromRole="Matricula" ToRole="Pessoa" />
           <NavigationProperty Name="Turma" Relationship="Self.FK_Matricula_IdTurma" FromRole="Matricula" ToRole="Turma" />
+          <NavigationProperty Name="FrequenciaOFicina" Relationship="DataEntidadeModel.FK_FrequenciaOFicina_IdMatricula" FromRole="Matricula" ToRole="FrequenciaOFicina" />
         </EntityType>
         <EntityType Name="Oficina">
           <Key>
@@ -525,6 +568,7 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
           <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="GradeProfessor" Relationship="Self.FK_GradeProfessor_IdCurso" FromRole="Oficina" ToRole="GradeProfessor" />
           <NavigationProperty Name="Turma" Relationship="Self.GradeTurma" FromRole="Oficina" ToRole="Turma" />
+          <NavigationProperty Name="FrequenciaOFicina" Relationship="DataEntidadeModel.FK_FrequenciaOFicina_IdOficina" FromRole="Oficina" ToRole="FrequenciaOFicina" />
         </EntityType>
         <EntityType Name="Pessoa">
           <Key>
@@ -865,7 +909,52 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
             <End Role="Oficina" EntitySet="Oficina" />
             <End Role="Turma" EntitySet="Turma" />
           </AssociationSet>
+          <EntitySet Name="FrequenciaOFicina" EntityType="DataEntidadeModel.FrequenciaOFicina" />
+          <AssociationSet Name="FK_FrequenciaOFicina_IdMatricula" Association="DataEntidadeModel.FK_FrequenciaOFicina_IdMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="FrequenciaOFicina" EntitySet="FrequenciaOFicina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FrequenciaOFicina_IdOficina" Association="DataEntidadeModel.FK_FrequenciaOFicina_IdOficina">
+            <End Role="Oficina" EntitySet="Oficina" />
+            <End Role="FrequenciaOFicina" EntitySet="FrequenciaOFicina" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="FrequenciaOFicina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMatricula" Type="Int32" Nullable="false" />
+          <Property Name="idOficina" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Matricula" Relationship="DataEntidadeModel.FK_FrequenciaOFicina_IdMatricula" FromRole="FrequenciaOFicina" ToRole="Matricula" />
+          <NavigationProperty Name="Oficina" Relationship="DataEntidadeModel.FK_FrequenciaOFicina_IdOficina" FromRole="FrequenciaOFicina" ToRole="Oficina" />
+          <Property Name="IsFalta" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_FrequenciaOFicina_IdMatricula">
+          <End Type="DataEntidadeModel.Matricula" Role="Matricula" Multiplicity="1" />
+          <End Type="DataEntidadeModel.FrequenciaOFicina" Role="FrequenciaOFicina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FrequenciaOFicina">
+              <PropertyRef Name="idMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FrequenciaOFicina_IdOficina">
+          <End Type="DataEntidadeModel.Oficina" Role="Oficina" Multiplicity="1" />
+          <End Type="DataEntidadeModel.FrequenciaOFicina" Role="FrequenciaOFicina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oficina">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FrequenciaOFicina">
+              <PropertyRef Name="idOficina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1016,6 +1105,17 @@ warning 6002: The table/view 'AprendizIA3.dbo.GradeTurma' does not have a primar
               <ScalarProperty Name="Id" ColumnName="IdTurma" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="FrequenciaOFicina">
+            <EntityTypeMapping TypeName="DataEntidadeModel.FrequenciaOFicina">
+              <MappingFragment StoreEntitySet="FrequenciaOFicina">
+                <ScalarProperty Name="IsFalta" ColumnName="IsFalta" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="idOficina" ColumnName="idOficina" />
+                <ScalarProperty Name="idMatricula" ColumnName="idMatricula" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -105,6 +105,14 @@ CREATE TABLE Frequencia (
 	IsFalta BIT NOT NULL
 )
 
+create table FrequenciaOFicina(
+	Id INT PRIMARY KEY IDENTITY,	
+	idMatricula int NOT NULL,
+	idOficina int NOT NULL,
+	Data DATETIME NOT NULL,
+	IsFalta BIT NOT NULL
+)
+
 
 
 
@@ -162,3 +170,10 @@ GO
 ALTER TABLE Frequencia
 ADD CONSTRAINT FK_Frequencia_IdContratacao FOREIGN KEY (IdContratacao) REFERENCES Contratacao(Id)
 GO
+
+ALTER TABLE FrequenciaOFicina
+ADD CONSTRAINT FK_FrequenciaOFicina_IdMatricula FOREIGN KEY (idMatricula) REFERENCES Matricula(Id)
+GO
+
+ALTER TABLE FrequenciaOFicina
+ADD CONSTRAINT FK_FrequenciaOFicina_IdOficina FOREIGN KEY (idOficina) REFERENCES Oficina(Id)

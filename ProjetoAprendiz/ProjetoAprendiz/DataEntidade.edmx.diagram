@@ -6,18 +6,18 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7c920f6f35f14c41b742e7ea8af2e0f1" Name="Diagram1">
         <EntityTypeShape EntityType="DataEntidadeModel.Atividade" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Contratacao" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Curso" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Endereco" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Frequencia" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Matricula" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Oficina" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Pessoa" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Contratacao" Width="1.5" PointX="10.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Curso" Width="1.5" PointX="9" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Endereco" Width="1.5" PointX="3.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Frequencia" Width="1.5" PointX="15" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Matricula" Width="1.5" PointX="10.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Oficina" Width="1.5" PointX="13.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Pessoa" Width="1.5" PointX="6.5" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DataEntidadeModel.PessoaTipo" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataEntidadeModel.Telefone" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.Turma" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.TurmaEstado" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataEntidadeModel.GradeProfessor" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.Turma" Width="1.5" PointX="8.875" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.TurmaEstado" Width="1.5" PointX="4.125" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataEntidadeModel.GradeProfessor" Width="1.5" PointX="8.875" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="DataEntidadeModel.FK_Pessoa_IdAtividade" ManuallyRouted="false" />
         <AssociationConnector Association="DataEntidadeModel.FK_Contratacao_IdEmpresa" ManuallyRouted="false" />
         <AssociationConnector Association="DataEntidadeModel.FK_Contratacao_IdMatricula" ManuallyRouted="false" />
@@ -34,6 +34,9 @@
         <AssociationConnector Association="DataEntidadeModel.FK_GradeProfessor_IdTurma" ManuallyRouted="false" />
         <AssociationConnector Association="DataEntidadeModel.FK_Turma_IdEstado" ManuallyRouted="false" />
         <AssociationConnector Association="DataEntidadeModel.GradeTurma" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DataEntidadeModel.FrequenciaOFicina" Width="1.5" PointX="13.375" PointY="12.875" />
+        <AssociationConnector Association="DataEntidadeModel.FK_FrequenciaOFicina_IdMatricula" />
+        <AssociationConnector Association="DataEntidadeModel.FK_FrequenciaOFicina_IdOficina" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

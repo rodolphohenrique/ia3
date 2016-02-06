@@ -38,5 +38,6 @@ namespace ProjetoAprendiz
         public virtual DbSet<Turma> Turma { get; set; }
         public virtual DbSet<TurmaEstado> TurmaEstado { get; set; }
         public virtual DbSet<GradeProfessor> GradeProfessor { get; set; }
+        public virtual DbSet<FrequenciaOFicina> FrequenciaOFicina { get; set; }
     }
 }
