@@ -11,7 +11,7 @@ namespace ProjetoAprendiz.Class
     {
         public static TurmaView GetTurmaByID(int id)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 return context.Turma.Find(id).toTurma();
             }
@@ -19,7 +19,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<TurmaView> GetAllTurma()
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 return context.Turma.ToList().toTurmas();
             }
@@ -27,7 +27,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Salvar(TurmaView turma)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 var item = new Turma()
                 {
@@ -35,7 +35,7 @@ namespace ProjetoAprendiz.Class
                     DataCriacao = turma.DataCriacao,
                     Nome = turma.Nome,
                     IdEstado = 1,
-                    IdCurso = turma.IdCurso
+
                 };
 
                 context.Turma.Add(item);
@@ -45,7 +45,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Deletar(int id)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 var item = context.Turma.Find(id);
 
@@ -57,13 +57,13 @@ namespace ProjetoAprendiz.Class
 
         public static void Editar(TurmaView turma)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 var item = context.Turma.Find(turma.Id);
 
                 item.Nome = turma.Nome;
                 item.IdEstado = 1;
-                item.IdCurso = turma.IdCurso;
+               
                 item.DataCriacao = turma.DataCriacao;
                 item.Descricao = turma.Descricao;
    

@@ -20,7 +20,8 @@ CREATE TABLE Pessoa (
 	IdAtividade INT	NOT NULL,
 	IdPessoaTipo INT NOT NULL,
 	IdTelefone INT,
-	IdEndereco INT
+	IdEndereco INT,
+	IsAtivo BIT NOT NULL
 )
 
 CREATE TABLE Telefone (
@@ -42,7 +43,6 @@ CREATE TABLE Endereco (
 	Pais VARCHAR(50),
 )
 
-
 CREATE TABLE Curso (
 	Id INT PRIMARY KEY IDENTITY,	 
 	Nome  VARCHAR(50) NOT NULL,
@@ -56,59 +56,62 @@ CREATE TABLE Oficina (
 	DataCriacao DATETIME NOT NULL
 )
 
-CREATE TABLE TurmaEstado (
-	Id INT PRIMARY KEY IDENTITY,	 
-	Descricao VARCHAR(50) NOT NULL
-)
-
 CREATE TABLE Turma (
 	Id INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR(50) NOT NULL,
 	Descricao VARCHAR(50), 
-	IdCurso INT NOT NULL,
 	DataCriacao DATETIME NOT NULL,
+	IdOficina INT NOT NULL,
 	IdEstado INT NOT NULL		
 )
+
+CREATE TABLE TurmaMatricula(
+	IdMatricula INT NOT NULL,
+	IdTurma INT NOT NULL,
+	IdEstado INT NOT NULL,
+)
+
+CREATE TABLE Estado(
+	Id INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(50)
+)
+
+CREATE TABLE Referencia(
+	Id INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(50)
+)
+
+CREATE TABLE EstadoReferencia(
+	IdEstado INT NOT NULL,
+	IdReferencia INT NOT NULL
+)
+
 
 CREATE TABLE Matricula (
 	Id INT PRIMARY KEY IDENTITY,	 
 	IdAprendiz INT NOT NULL,
-	IdResponsavel INT,
-	IdTurma INT NOT NULL,
-	DataMatricula DATETIME NOT NULL
+	IdCurso INT NOT NULL,
+	DataMatricula DATETIME NOT NULL,
+	IdEstado INT NOT NULL
 )
 
-CREATE TABLE GradeTurma (
-	IdTurma INT NOT NULL,
-	IdOficina INT NOT NULL
+create table GradeMatricula(
+	Id INT PRIMARY KEY IDENTITY,
+	IdOficina int NOT NULL,
+	IdMatricula INT NOT NULL,
+	isCompleto BIT NOT NULL
 )
+
 
 CREATE TABLE GradeProfessor (
-	IdTurma INT NOT NULL,
-	IdProfessor INT NOT NULL,
-	IdOficina INT NOT NULL
-)
-
-CREATE TABLE Contratacao (
 	Id INT PRIMARY KEY IDENTITY,
-	IdEmpresa INT NOT NULL,
-	IdMatricula INT NOT NULL,
-	DataContratoInicio DATETIME NOT NULL,
-	DataMatriculaFim DATETIME,
-	DataInclusao DATETIME NOT NULL
+	IdTurma INT NOT NULL,
+	IdProfessor INT NOT NULL
 )
 
 CREATE TABLE Frequencia (
 	Id INT PRIMARY KEY IDENTITY,
-	IdContratacao INT NOT NULL,
-	Data DATETIME NOT NULL,
-	IsFalta BIT NOT NULL
-)
-
-create table FrequenciaOFicina(
-	Id INT PRIMARY KEY IDENTITY,	
-	idMatricula int NOT NULL,
-	idOficina int NOT NULL,
+	IdTurma INT NOT NULL,
 	Data DATETIME NOT NULL,
 	IsFalta BIT NOT NULL
 )
@@ -130,50 +133,33 @@ ADD CONSTRAINT FK_Pessoa_IdEndereco FOREIGN KEY (IdEndereco) REFERENCES Endereco
 GO
 
 ALTER TABLE Turma
-ADD CONSTRAINT FK_Turma_IdOficina FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
+ADD CONSTRAINT FK_Turma_IdOficina FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
 GO
 
 ALTER TABLE Turma
-ADD CONSTRAINT FK_Turma_IdEstado FOREIGN KEY (IdEstado) REFERENCES TurmaEstado(Id)
+ADD CONSTRAINT FK_Turma_IdEstado FOREIGN KEY (IdEstado) REFERENCES Estado(Id)
 GO
 
 ALTER TABLE Matricula
 ADD CONSTRAINT FK_Matricula_IdAprendiz FOREIGN KEY (IdAprendiz) REFERENCES Pessoa(Id)
 GO
+
 ALTER TABLE Matricula
-ADD CONSTRAINT FK_Matricula_IdResponsavel FOREIGN KEY (IdResponsavel) REFERENCES Pessoa(Id)
+ADD CONSTRAINT FK_Matricula_IdCurso FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
 GO
+
 ALTER TABLE Matricula
-ADD CONSTRAINT FK_Matricula_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+ADD CONSTRAINT FK_Matricula_IdEstado FOREIGN KEY (IdEstado) REFERENCES Estado(Id)
 GO
-ALTER TABLE GradeTurma
-ADD CONSTRAINT FK_GradeTurma_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
-GO
-ALTER TABLE GradeTurma
-ADD CONSTRAINT FK_GradeTurma_IdCurso FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
-GO
+
 ALTER TABLE GradeProfessor
 ADD CONSTRAINT FK_GradeProfessor_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
 GO
-ALTER TABLE GradeProfessor
-ADD CONSTRAINT FK_GradeProfessor_IdCurso FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
-GO
+
 ALTER TABLE GradeProfessor
 ADD CONSTRAINT FK_GradeProfessor_IdProfessor FOREIGN KEY (IdProfessor) REFERENCES Pessoa(Id)
 GO
-ALTER TABLE Contratacao
-ADD CONSTRAINT FK_Contratacao_IdEmpresa FOREIGN KEY (IdEmpresa) REFERENCES Pessoa(Id)
-GO
-ALTER TABLE Contratacao
-ADD CONSTRAINT FK_Contratacao_IdMatricula FOREIGN KEY (IdMatricula) REFERENCES Matricula(Id)
-GO
+
 ALTER TABLE Frequencia
-ADD CONSTRAINT FK_Frequencia_IdContratacao FOREIGN KEY (IdContratacao) REFERENCES Contratacao(Id)
+ADD CONSTRAINT FK_Frequencia_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
 GO
-
-ALTER TABLE FrequenciaOFicina
-ADD CONSTRAINT FK_FrequenciaOFicina_IdMatricula FOREIGN KEY (idMatricula) REFERENCES Matricula(Id)
-GO
-
-ALTER TABLE FrequenciaOFicina
-ADD CONSTRAINT FK_FrequenciaOFicina_IdOficina FOREIGN KEY (idOficina) REFERENCES Oficina(Id)

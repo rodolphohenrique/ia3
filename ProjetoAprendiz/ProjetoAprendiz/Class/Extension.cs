@@ -83,7 +83,7 @@ namespace ProjetoAprendiz.Class
                 DataCriacao = data.DataCriacao,
                 Descricao = data.Descricao,
                 IdEstado = data.IdEstado,
-                IdCurso = data.IdCurso
+             
             };
         }
 

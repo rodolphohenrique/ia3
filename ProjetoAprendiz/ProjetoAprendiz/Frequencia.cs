@@ -15,10 +15,10 @@ namespace ProjetoAprendiz
     public partial class Frequencia
     {
         public int Id { get; set; }
-        public int IdContratacao { get; set; }
+        public int IdTurma { get; set; }
         public System.DateTime Data { get; set; }
         public bool IsFalta { get; set; }
     
-        public virtual Contratacao Contratacao { get; set; }
+        public virtual Turma Turma { get; set; }
     }
 }

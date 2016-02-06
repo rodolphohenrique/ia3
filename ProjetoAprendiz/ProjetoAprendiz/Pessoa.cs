@@ -17,10 +17,8 @@ namespace ProjetoAprendiz
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pessoa()
         {
-            this.Contratacao = new HashSet<Contratacao>();
-            this.Matricula = new HashSet<Matricula>();
-            this.Matricula1 = new HashSet<Matricula>();
             this.GradeProfessor = new HashSet<GradeProfessor>();
+            this.Matricula = new HashSet<Matricula>();
         }
     
         public int Id { get; set; }
@@ -33,17 +31,14 @@ namespace ProjetoAprendiz
         public int IdPessoaTipo { get; set; }
         public Nullable<int> IdTelefone { get; set; }
         public Nullable<int> IdEndereco { get; set; }
+        public bool IsAtivo { get; set; }
     
         public virtual Atividade Atividade { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contratacao> Contratacao { get; set; }
         public virtual Endereco Endereco { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Matricula> Matricula { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Matricula> Matricula1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GradeProfessor> GradeProfessor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Matricula> Matricula { get; set; }
         public virtual PessoaTipo PessoaTipo { get; set; }
         public virtual Telefone Telefone { get; set; }
     }

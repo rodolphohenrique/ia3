@@ -12,17 +12,20 @@ namespace ProjetoAprendiz
     using System;
     using System.Collections.Generic;
     
-    public partial class TurmaEstado
+    public partial class Estado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TurmaEstado()
+        public Estado()
         {
+            this.Matricula = new HashSet<Matricula>();
             this.Turma = new HashSet<Turma>();
         }
     
         public int Id { get; set; }
         public string Descricao { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Matricula> Matricula { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Turma> Turma { get; set; }
     }

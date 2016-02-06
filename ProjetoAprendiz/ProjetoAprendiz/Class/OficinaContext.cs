@@ -11,7 +11,7 @@ namespace ProjetoAprendiz.Class
     {
         public static OficinaView GetOficinaByID(int id)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 return context.Oficina.Find(id).toOficina();
             }
@@ -19,7 +19,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<OficinaView> GetAllOficina()
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 return context.Oficina.ToList().toOficinas();
             }
@@ -27,7 +27,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Salvar(OficinaView oficina)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 var item = new Oficina()
                 {
@@ -42,7 +42,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Deletar(int id)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 var item = context.Oficina.Find(id);
 
@@ -54,7 +54,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Editar(OficinaView oficina)
         {
-            using (var context = new DataEntidade())
+            using (var context = new DataBaseEntidade())
             {
                 var item = context.Oficina.Find(oficina.Id);
 

@@ -13,10 +13,10 @@ namespace ProjetoAprendiz
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataEntidade : DbContext
+    public partial class DataBaseEntidade : DbContext
     {
-        public DataEntidade()
-            : base("name=DataEntidade")
+        public DataBaseEntidade()
+            : base("name=DataBaseEntidade")
         {
         }
     
@@ -26,18 +26,20 @@ namespace ProjetoAprendiz
         }
     
         public virtual DbSet<Atividade> Atividade { get; set; }
-        public virtual DbSet<Contratacao> Contratacao { get; set; }
         public virtual DbSet<Curso> Curso { get; set; }
         public virtual DbSet<Endereco> Endereco { get; set; }
+        public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Frequencia> Frequencia { get; set; }
+        public virtual DbSet<GradeMatricula> GradeMatricula { get; set; }
+        public virtual DbSet<GradeProfessor> GradeProfessor { get; set; }
         public virtual DbSet<Matricula> Matricula { get; set; }
         public virtual DbSet<Oficina> Oficina { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
         public virtual DbSet<PessoaTipo> PessoaTipo { get; set; }
+        public virtual DbSet<Referencia> Referencia { get; set; }
         public virtual DbSet<Telefone> Telefone { get; set; }
         public virtual DbSet<Turma> Turma { get; set; }
-        public virtual DbSet<TurmaEstado> TurmaEstado { get; set; }
-        public virtual DbSet<GradeProfessor> GradeProfessor { get; set; }
-        public virtual DbSet<FrequenciaOFicina> FrequenciaOFicina { get; set; }
+        public virtual DbSet<EstadoReferencia> EstadoReferencia { get; set; }
+        public virtual DbSet<TurmaMatricula> TurmaMatricula { get; set; }
     }
 }

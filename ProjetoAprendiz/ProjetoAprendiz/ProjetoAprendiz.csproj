@@ -131,16 +131,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Atividade.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\CursoContext.cs" />
     <Compile Include="Class\Extension.cs" />
     <Compile Include="Class\OficinaContext.cs" />
     <Compile Include="Class\PessoaDBContext.cs" />
     <Compile Include="Class\TurmaContext.cs" />
-    <Compile Include="Contratacao.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatriculaController.cs" />
@@ -148,37 +145,46 @@
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Controllers\TurmaController.cs" />
     <Compile Include="Curso.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntidade.Context.cs">
+    <Compile Include="DatabaseEntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataEntidade.Context.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntidade.cs">
+    <Compile Include="DatabaseEntityModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntidade.Designer.cs">
+    <Compile Include="DatabaseEntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataEntidade.edmx</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Endereco.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estado.cs">
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoReferencia.cs">
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Frequencia.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GradeMatricula.cs">
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GradeProfessor.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Matricula.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CursoView.cs" />
     <Compile Include="Models\MatriculaView.cs" />
@@ -188,37 +194,40 @@
     <Compile Include="Models\PessoaView.cs" />
     <Compile Include="Models\TurmaView.cs" />
     <Compile Include="Oficina.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pessoa.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PessoaTipo.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Referencia.cs">
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Telefone.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Turma.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TurmaEstado.cs">
-      <DependentUpon>DataEntidade.tt</DependentUpon>
+    <Compile Include="TurmaMatricula.cs">
+      <DependentUpon>DatabaseEntityModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DataEntidade.Context.tt">
+    <Content Include="DatabaseEntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataEntidade.edmx</DependentUpon>
-      <LastGenOutput>DataEntidade.Context.cs</LastGenOutput>
+      <DependentUpon>DatabaseEntityModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseEntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DataEntidade.tt">
+    <Content Include="DatabaseEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataEntidade.edmx</DependentUpon>
-      <LastGenOutput>DataEntidade.cs</LastGenOutput>
+      <DependentUpon>DatabaseEntityModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseEntityModel.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -226,12 +235,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="DataEntidade.edmx">
+    <EntityDeploy Include="DatabaseEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataEntidade.Designer.cs</LastGenOutput>
+      <LastGenOutput>DatabaseEntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DataEntidade.edmx.diagram">
-      <DependentUpon>DataEntidade.edmx</DependentUpon>
+    <Content Include="DatabaseEntityModel.edmx.diagram">
+      <DependentUpon>DatabaseEntityModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

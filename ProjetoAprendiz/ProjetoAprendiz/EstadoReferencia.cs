@@ -12,13 +12,9 @@ namespace ProjetoAprendiz
     using System;
     using System.Collections.Generic;
     
-    public partial class GradeProfessor
+    public partial class EstadoReferencia
     {
-        public int Id { get; set; }
-        public int IdTurma { get; set; }
-        public int IdProfessor { get; set; }
-    
-        public virtual Pessoa Pessoa { get; set; }
-        public virtual Turma Turma { get; set; }
+        public int IdEstado { get; set; }
+        public int IdReferencia { get; set; }
     }
 }

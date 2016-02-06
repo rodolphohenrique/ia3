@@ -14,25 +14,14 @@ namespace ProjetoAprendiz
     
     public partial class Matricula
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Matricula()
-        {
-            this.Contratacao = new HashSet<Contratacao>();
-            this.FrequenciaOFicina = new HashSet<FrequenciaOFicina>();
-        }
-    
         public int Id { get; set; }
         public int IdAprendiz { get; set; }
-        public Nullable<int> IdResponsavel { get; set; }
-        public int IdTurma { get; set; }
+        public int IdCurso { get; set; }
         public System.DateTime DataMatricula { get; set; }
+        public int IdEstado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contratacao> Contratacao { get; set; }
+        public virtual Curso Curso { get; set; }
+        public virtual Estado Estado { get; set; }
         public virtual Pessoa Pessoa { get; set; }
-        public virtual Pessoa Pessoa1 { get; set; }
-        public virtual Turma Turma { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FrequenciaOFicina> FrequenciaOFicina { get; set; }
     }
 }

@@ -12,15 +12,9 @@ namespace ProjetoAprendiz
     using System;
     using System.Collections.Generic;
     
-    public partial class FrequenciaOFicina
+    public partial class Referencia
     {
         public int Id { get; set; }
-        public int idMatricula { get; set; }
-        public int idOficina { get; set; }
-        public System.DateTime Data { get; set; }
-        public bool IsFalta { get; set; }
-    
-        public virtual Matricula Matricula { get; set; }
-        public virtual Oficina Oficina { get; set; }
+        public string Descricao { get; set; }
     }
 }
