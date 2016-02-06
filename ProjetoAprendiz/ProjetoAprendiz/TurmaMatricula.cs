@@ -17,5 +17,9 @@ namespace ProjetoAprendiz
         public int IdMatricula { get; set; }
         public int IdTurma { get; set; }
         public int IdEstado { get; set; }
+    
+        public virtual Estado Estado { get; set; }
+        public virtual Matricula Matricula { get; set; }
+        public virtual Turma Turma { get; set; }
     }
 }

@@ -18,5 +18,8 @@ namespace ProjetoAprendiz
         public int IdOficina { get; set; }
         public int IdMatricula { get; set; }
         public bool isCompleto { get; set; }
+    
+        public virtual Matricula Matricula { get; set; }
+        public virtual Oficina Oficina { get; set; }
     }
 }

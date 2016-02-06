@@ -19,6 +19,7 @@ namespace ProjetoAprendiz
         {
             this.Frequencia = new HashSet<Frequencia>();
             this.GradeProfessor = new HashSet<GradeProfessor>();
+            this.TurmaMatricula = new HashSet<TurmaMatricula>();
         }
     
         public int Id { get; set; }
@@ -34,5 +35,7 @@ namespace ProjetoAprendiz
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GradeProfessor> GradeProfessor { get; set; }
         public virtual Oficina Oficina { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TurmaMatricula> TurmaMatricula { get; set; }
     }
 }

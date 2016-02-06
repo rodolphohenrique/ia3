@@ -163,3 +163,33 @@ GO
 ALTER TABLE Frequencia
 ADD CONSTRAINT FK_Frequencia_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
 GO
+
+ALTER TABLE GradeMatricula
+ADD CONSTRAINT FK_GradeMatricula_IdMatricula FOREIGN KEY (IdMatricula) REFERENCES Matricula(Id)
+GO
+
+ALTER TABLE GradeMatricula
+ADD CONSTRAINT FK_GradeMatricula_IdOficina FOREIGN KEY (IdOficina) REFERENCES Oficina(Id)
+GO
+
+ALTER TABLE TurmaMatricula
+ADD CONSTRAINT FK_TurmaMatricula_IdMatricula FOREIGN KEY (IdMatricula) REFERENCES Matricula(Id)
+GO
+
+ALTER TABLE TurmaMatricula
+ADD CONSTRAINT FK_TurmaMatricula_IdEstado FOREIGN KEY (IdEstado) REFERENCES Estado(Id)
+GO
+
+ALTER TABLE TurmaMatricula
+ADD CONSTRAINT FK_TurmaMatricula_IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+GO
+
+
+ALTER TABLE EstadoReferencia
+ADD CONSTRAINT FK_EstadoReferencia_IdEstado FOREIGN KEY (IdEstado) REFERENCES Estado(Id)
+GO
+
+
+ALTER TABLE EstadoReferencia
+ADD CONSTRAINT FK_EstadoReferencia_IdReferencia FOREIGN KEY (IdReferencia) REFERENCES Referencia(Id)
+GO

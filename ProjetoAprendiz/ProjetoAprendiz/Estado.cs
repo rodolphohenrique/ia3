@@ -19,6 +19,8 @@ namespace ProjetoAprendiz
         {
             this.Matricula = new HashSet<Matricula>();
             this.Turma = new HashSet<Turma>();
+            this.TurmaMatricula = new HashSet<TurmaMatricula>();
+            this.Referencia = new HashSet<Referencia>();
         }
     
         public int Id { get; set; }
@@ -28,5 +30,9 @@ namespace ProjetoAprendiz
         public virtual ICollection<Matricula> Matricula { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Turma> Turma { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TurmaMatricula> TurmaMatricula { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Referencia> Referencia { get; set; }
     }
 }

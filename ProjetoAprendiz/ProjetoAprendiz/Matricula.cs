@@ -14,6 +14,13 @@ namespace ProjetoAprendiz
     
     public partial class Matricula
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Matricula()
+        {
+            this.GradeMatricula = new HashSet<GradeMatricula>();
+            this.TurmaMatricula = new HashSet<TurmaMatricula>();
+        }
+    
         public int Id { get; set; }
         public int IdAprendiz { get; set; }
         public int IdCurso { get; set; }
@@ -23,5 +30,9 @@ namespace ProjetoAprendiz
         public virtual Curso Curso { get; set; }
         public virtual Estado Estado { get; set; }
         public virtual Pessoa Pessoa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GradeMatricula> GradeMatricula { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TurmaMatricula> TurmaMatricula { get; set; }
     }
 }
