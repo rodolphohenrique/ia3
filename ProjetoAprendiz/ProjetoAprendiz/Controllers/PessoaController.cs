@@ -61,7 +61,7 @@ namespace ProjetoAprendiz.Controllers
                 pessoa.IdPessoaTipo = 2;
             }
             PessoaDBContext.Editar(pessoa);
-            return View("Index", PessoaDBContext.RecuperarListaPessoasCompleta());
+            return View("Index", NovaInstanciaPessoasListView(string.Empty, string.Empty, string.Empty, 0));
         }
 
         [HttpGet]

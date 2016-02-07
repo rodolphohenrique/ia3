@@ -70,7 +70,19 @@ namespace ProjetoAprendiz.Class
                 item.DataNascimento = pessoa.DataNascimento;
                 item.CPFCNPJ = pessoa.CPFCNPJ;
                 item.IdPessoaTipo = pessoa.IdPessoaTipo;
-                
+
+                item.Telefone.NumeroFixo = pessoa.Telefone.NumeroFixo;
+                item.Telefone.NumeroCelular = pessoa.Telefone.NumeroCelular;
+
+                item.Endereco.Endereco1 = pessoa.Endereco.Endereco;
+                item.Endereco.Complemento = pessoa.Endereco.Complemento;
+                item.Endereco.Numero = pessoa.Endereco.Numero;
+                item.Endereco.Cidade = pessoa.Endereco.Cidade;
+                item.Endereco.Estado = pessoa.Endereco.Estado;
+                item.Endereco.Bairro = pessoa.Endereco.Bairro;
+                item.Endereco.CEP = pessoa.Endereco.CEP;
+                item.Endereco.Pais = pessoa.Endereco.Pais;
+
                 context.SaveChanges();
             }
         }
@@ -79,6 +91,25 @@ namespace ProjetoAprendiz.Class
         {
             using (var context = new DataBaseEntidade())
             {
+                var telefone = new Telefone()
+                {
+                    NumeroFixo = pessoa.Telefone.NumeroFixo,
+                    NumeroCelular = pessoa.Telefone.NumeroCelular
+                };
+
+                var endereco = new Endereco()
+                {
+                    Endereco1 = pessoa.Endereco.Endereco,
+                    Complemento = pessoa.Endereco.Complemento,
+                    Numero = pessoa.Endereco.Numero,
+                    Cidade = pessoa.Endereco.Cidade,
+                    Estado = pessoa.Endereco.Estado,
+                    Bairro = pessoa.Endereco.Bairro,
+                    CEP = pessoa.Endereco.CEP,
+                    Pais = pessoa.Endereco.Pais
+                };
+
+
                 var item = new Pessoa()
                 {
                     Nome = pessoa.Nome,
@@ -87,7 +118,9 @@ namespace ProjetoAprendiz.Class
                     DataNascimento = pessoa.DataNascimento,
                     CPFCNPJ = pessoa.CPFCNPJ,
                     IdAtividade = 1,
-                    IdPessoaTipo = pessoa.IdPessoaTipo
+                    IdPessoaTipo = pessoa.IdPessoaTipo,
+                    Telefone = telefone,
+                    Endereco = endereco
                 };
 
                 context.Pessoa.Add(item);
