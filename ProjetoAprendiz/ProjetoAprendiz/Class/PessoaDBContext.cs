@@ -11,7 +11,7 @@ namespace ProjetoAprendiz.Class
     {
         public static PessoaView GetPessoaById(int id)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Pessoa.Find(id).toPessoaView();
             }
@@ -19,7 +19,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<PessoaView> RecuperarListaPessoaFiltrada(string nomeFiltro, string CnpjCpfFiltro, string EmailFiltro, int idPessoaTipo)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Pessoa.Where
                     (x => ((string.IsNullOrEmpty(nomeFiltro) || x.Nome.Contains(nomeFiltro))
@@ -32,7 +32,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<PessoaView> RecuperarListaPessoasCompleta()
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Pessoa.ToList().toPessoasView();
             }
@@ -40,7 +40,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Deletar(int idPessoa)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = context.Pessoa.Find(idPessoa);
 
@@ -51,7 +51,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<Models.PessoaTipo> GetAllPessoaTipo()
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.PessoaTipo.ToList().toPessoasTipos();
 
@@ -60,7 +60,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Editar(PessoaView pessoa)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = context.Pessoa.Find(pessoa.Id);
 
@@ -72,12 +72,13 @@ namespace ProjetoAprendiz.Class
                 item.IdPessoaTipo = pessoa.IdPessoaTipo;
                 
                 context.SaveChanges();
+
             }
         }
 
         public static void Salvar(PessoaView pessoa)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = new Pessoa()
                 {
@@ -92,12 +93,20 @@ namespace ProjetoAprendiz.Class
 
                 context.Pessoa.Add(item);
                 context.SaveChanges();
+
+                int id = item.Id;
+
+                if(pessoa.NomeRepresentante)
+                    var representante = new Pessoa()
+                    {
+
+                    }
             }
         }
 
         public static List<Models.PessoaView> PesquisaPessoa(PessoaView pessoa)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var queryPessoas = (from p in context.Pessoa
                                    where p.Nome == pessoa.Nome
@@ -108,6 +117,13 @@ namespace ProjetoAprendiz.Class
             }
             List<PessoaView> listaPessoaView = new List<PessoaView>();
             return listaPessoaView;
+        }
+
+        public static Boolean ValidaCadastroPessoa(PessoaView pessoa)
+        {
+            if(pessoa.nome)
+
+            return true;
         }
 
     }

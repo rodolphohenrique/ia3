@@ -14,7 +14,7 @@ namespace ProjetoAprendiz.Class
 
         public static CursoView GetCursoByID(int id)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Curso.Find(id).toCursos();
             }
@@ -22,7 +22,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<CursoView> GetAllCursos()
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Curso.ToList().toCursos();
             }
@@ -30,7 +30,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Salvar(CursoView curso)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = new Curso()
                 {
@@ -45,7 +45,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Deletar(int id)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = context.Curso.Find(id);
 
@@ -57,7 +57,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Editar(CursoView curso)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = context.Curso.Find(curso.Id);
 

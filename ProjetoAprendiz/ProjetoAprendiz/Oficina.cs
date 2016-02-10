@@ -17,8 +17,8 @@ namespace ProjetoAprendiz
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Oficina()
         {
-            this.Turma = new HashSet<Turma>();
             this.GradeMatricula = new HashSet<GradeMatricula>();
+            this.Turma = new HashSet<Turma>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace ProjetoAprendiz
         public System.DateTime DataCriacao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turma> Turma { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GradeMatricula> GradeMatricula { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Turma> Turma { get; set; }
     }
 }

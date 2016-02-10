@@ -11,7 +11,7 @@ namespace ProjetoAprendiz.Class
     {
         public static TurmaView GetTurmaByID(int id)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Turma.Find(id).toTurma();
             }
@@ -19,7 +19,7 @@ namespace ProjetoAprendiz.Class
 
         public static List<TurmaView> GetAllTurma()
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 return context.Turma.ToList().toTurmas();
             }
@@ -27,7 +27,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Salvar(TurmaView turma)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = new Turma()
                 {
@@ -45,7 +45,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Deletar(int id)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = context.Turma.Find(id);
 
@@ -57,7 +57,7 @@ namespace ProjetoAprendiz.Class
 
         public static void Editar(TurmaView turma)
         {
-            using (var context = new DataBaseEntidade())
+            using (var context = new DatabaseEntities())
             {
                 var item = context.Turma.Find(turma.Id);
 

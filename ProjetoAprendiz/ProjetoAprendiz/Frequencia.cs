@@ -18,7 +18,9 @@ namespace ProjetoAprendiz
         public int IdTurma { get; set; }
         public System.DateTime Data { get; set; }
         public bool IsFalta { get; set; }
+        public Nullable<int> IdMatricula { get; set; }
     
+        public virtual Matricula Matricula { get; set; }
         public virtual Turma Turma { get; set; }
     }
 }

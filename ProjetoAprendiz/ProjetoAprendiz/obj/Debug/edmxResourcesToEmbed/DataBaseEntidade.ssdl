@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DataBaseEntidadeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DatabaseEntidade.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Atividade">
     <Key>
       <PropertyRef Name="Id" />
@@ -54,6 +54,7 @@ warning 6002: The table/view 'AprendizIA3.dbo.EstadoReferencia' does not have a 
     <Property Name="IdTurma" Type="int" Nullable="false" />
     <Property Name="Data" Type="datetime" Nullable="false" />
     <Property Name="IsFalta" Type="bit" Nullable="false" />
+    <Property Name="IdMatricula" Type="int" />
   </EntityType>
   <EntityType Name="GradeMatricula">
     <Key>
@@ -172,6 +173,18 @@ warning 6002: The table/view 'AprendizIA3.dbo.TurmaMatricula' does not have a pr
       </Principal>
       <Dependent Role="EstadoReferencia">
         <PropertyRef Name="IdReferencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frequencia_IdMatricula">
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="0..1" />
+    <End Role="Frequencia" Type="Self.Frequencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matricula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Frequencia">
+        <PropertyRef Name="IdMatricula" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -379,7 +392,7 @@ warning 6002: The table/view 'AprendizIA3.dbo.TurmaMatricula' does not have a pr
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DataBaseEntidadeModelStoreContainer">
+  <EntityContainer Name="DatabaseEntidadeStoreContainer">
     <EntitySet Name="Atividade" EntityType="Self.Atividade" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
@@ -414,6 +427,10 @@ warning 6002: The table/view 'AprendizIA3.dbo.TurmaMatricula' does not have a pr
     <AssociationSet Name="FK_EstadoReferencia_IdReferencia" Association="Self.FK_EstadoReferencia_IdReferencia">
       <End Role="Referencia" EntitySet="Referencia" />
       <End Role="EstadoReferencia" EntitySet="EstadoReferencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frequencia_IdMatricula" Association="Self.FK_Frequencia_IdMatricula">
+      <End Role="Matricula" EntitySet="Matricula" />
+      <End Role="Frequencia" EntitySet="Frequencia" />
     </AssociationSet>
     <AssociationSet Name="FK_Frequencia_IdTurma" Association="Self.FK_Frequencia_IdTurma">
       <End Role="Turma" EntitySet="Turma" />

@@ -113,6 +113,7 @@ CREATE TABLE Frequencia (
 	Id INT PRIMARY KEY IDENTITY,
 	IdTurma INT NOT NULL,
 	Data DATETIME NOT NULL,
+	IdMatricula INT NOT NULL,
 	IsFalta BIT NOT NULL
 )
 
@@ -193,3 +194,13 @@ GO
 ALTER TABLE EstadoReferencia
 ADD CONSTRAINT FK_EstadoReferencia_IdReferencia FOREIGN KEY (IdReferencia) REFERENCES Referencia(Id)
 GO
+
+ALTER TABLE gradeprofessor
+ADD CONSTRAINT FK_GradeProfessor_IdProfessor FOREIGN KEY (IdProfessor) REFERENCES Pessoa(Id)
+
+
+ALTER TABLE Frequencia
+ADD CONSTRAINT FK_Frequencia_IdMatricula FOREIGN KEY (IdMatricula) REFERENCES Matricula(Id)
+
+
+

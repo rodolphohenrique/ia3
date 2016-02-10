@@ -19,6 +19,18 @@ namespace ProjetoAprendiz.Models
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime DataInclusao { get; set; }
 
+
+        public int IdRepresentante { get; set; }
+        public string NomeRepresentante { get; set; }
+        public int CPFCNPJRepresentante { get; set; }
+        public string EmailRepresentante { get; set; }
+        public int IdPessoaTipoRepresentante { get; set; }
+        public string descricaoTipoPessoaRepresentante { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
+        public DateTime DataNascimentoRepresentante { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
+        public DateTime DataInclusaoRepresentante { get; set; }
+
         public List<PessoaTipo> PessoaTipos { get; set; }
 
         public PessoaTipo Tipo { get; set; }

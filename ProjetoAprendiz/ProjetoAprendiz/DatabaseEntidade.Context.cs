@@ -13,10 +13,10 @@ namespace ProjetoAprendiz
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataBaseEntidade : DbContext
+    public partial class DatabaseEntities : DbContext
     {
-        public DataBaseEntidade()
-            : base("name=DataBaseEntidade")
+        public DatabaseEntities()
+            : base("name=DatabaseEntities")
         {
         }
     
@@ -39,7 +39,6 @@ namespace ProjetoAprendiz
         public virtual DbSet<Referencia> Referencia { get; set; }
         public virtual DbSet<Telefone> Telefone { get; set; }
         public virtual DbSet<Turma> Turma { get; set; }
-        public virtual DbSet<EstadoReferencia> EstadoReferencia { get; set; }
         public virtual DbSet<TurmaMatricula> TurmaMatricula { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DataBaseEntidadeModelStoreContainer" CdmEntityContainer="DataBaseEntidade">
+  <EntityContainerMapping StorageEntityContainer="DatabaseEntidadeStoreContainer" CdmEntityContainer="DatabaseEntities">
     <EntitySetMapping Name="Atividade">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Atividade">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Atividade">
         <MappingFragment StoreEntitySet="Atividade">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Curso">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Curso">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Curso">
         <MappingFragment StoreEntitySet="Curso">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Endereco">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Endereco">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Endereco">
         <MappingFragment StoreEntitySet="Endereco">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Endereco1" ColumnName="Endereco" />
@@ -34,7 +34,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Estado">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Estado">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Estado">
         <MappingFragment StoreEntitySet="Estado">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
@@ -42,17 +42,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Frequencia">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Frequencia">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Frequencia">
         <MappingFragment StoreEntitySet="Frequencia">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="IsFalta" ColumnName="IsFalta" />
+          <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="GradeMatricula">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.GradeMatricula">
+      <EntityTypeMapping TypeName="DatabaseEntidade.GradeMatricula">
         <MappingFragment StoreEntitySet="GradeMatricula">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdOficina" ColumnName="IdOficina" />
@@ -62,7 +63,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="GradeProfessor">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.GradeProfessor">
+      <EntityTypeMapping TypeName="DatabaseEntidade.GradeProfessor">
         <MappingFragment StoreEntitySet="GradeProfessor">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
@@ -71,7 +72,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Matricula">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Matricula">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Matricula">
         <MappingFragment StoreEntitySet="Matricula">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdAprendiz" ColumnName="IdAprendiz" />
@@ -82,7 +83,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Oficina">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Oficina">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Oficina">
         <MappingFragment StoreEntitySet="Oficina">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -91,7 +92,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pessoa">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Pessoa">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Pessoa">
         <MappingFragment StoreEntitySet="Pessoa">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -108,7 +109,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PessoaTipo">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.PessoaTipo">
+      <EntityTypeMapping TypeName="DatabaseEntidade.PessoaTipo">
         <MappingFragment StoreEntitySet="PessoaTipo">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
@@ -116,7 +117,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Referencia">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Referencia">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Referencia">
         <MappingFragment StoreEntitySet="Referencia">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
@@ -124,7 +125,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Telefone">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Telefone">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Telefone">
         <MappingFragment StoreEntitySet="Telefone">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="NumeroFixo" ColumnName="NumeroFixo" />
@@ -133,7 +134,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Turma">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.Turma">
+      <EntityTypeMapping TypeName="DatabaseEntidade.Turma">
         <MappingFragment StoreEntitySet="Turma">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -144,16 +145,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EstadoReferencia">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.EstadoReferencia">
-        <MappingFragment StoreEntitySet="EstadoReferencia">
-          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
-          <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TurmaMatricula">
-      <EntityTypeMapping TypeName="DataBaseEntidadeModel.TurmaMatricula">
+      <EntityTypeMapping TypeName="DatabaseEntidade.TurmaMatricula">
         <MappingFragment StoreEntitySet="TurmaMatricula">
           <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
           <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
@@ -161,12 +154,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="EstadoReferencia1" TypeName="DataBaseEntidadeModel.EstadoReferencia1" StoreEntitySet="EstadoReferencia">
-      <EndProperty Name="Referencia">
-        <ScalarProperty Name="Id" ColumnName="IdReferencia" />
-      </EndProperty>
+    <AssociationSetMapping Name="EstadoReferencia" TypeName="DatabaseEntidade.EstadoReferencia" StoreEntitySet="EstadoReferencia">
       <EndProperty Name="Estado">
         <ScalarProperty Name="Id" ColumnName="IdEstado" />
+      </EndProperty>
+      <EndProperty Name="Referencia">
+        <ScalarProperty Name="Id" ColumnName="IdReferencia" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
