@@ -96,11 +96,13 @@ namespace ProjetoAprendiz.Class
 
                 int id = item.Id;
 
-                if(pessoa.NomeRepresentante)
+                if (pessoa.NomeRepresentante != null)
+                {
                     var representante = new Pessoa()
                     {
 
-                    }
+                    };
+                }
             }
         }
 
@@ -119,12 +121,12 @@ namespace ProjetoAprendiz.Class
             return listaPessoaView;
         }
 
-        public static Boolean ValidaCadastroPessoa(PessoaView pessoa)
-        {
-            if(pessoa.nome)
+        //public static Boolean ValidaCadastroPessoa(PessoaView pessoa)
+        //{
+        //    if(pessoa.nome)
 
-            return true;
-        }
+        //    return true;
+        //}
 
     }
 }
