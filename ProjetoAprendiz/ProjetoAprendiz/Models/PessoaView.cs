@@ -19,6 +19,8 @@ namespace ProjetoAprendiz.Models
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime DataInclusao { get; set; }
 
+        public EnderecoView Endereco { get; set; }
+        public TelefoneView Telefone { get; set; }
 
         public int IdRepresentante { get; set; }
         public string NomeRepresentante { get; set; }

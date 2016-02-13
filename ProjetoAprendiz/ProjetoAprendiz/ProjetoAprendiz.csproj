@@ -184,11 +184,13 @@
       <DependentUpon>DatabaseEntidade.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CursoView.cs" />
+    <Compile Include="Models\EnderecoView.cs" />
     <Compile Include="Models\MatriculaView.cs" />
     <Compile Include="Models\OficinaView.cs" />
     <Compile Include="Models\PessoaListView.cs" />
     <Compile Include="Models\PessoaTipo.cs" />
     <Compile Include="Models\PessoaView.cs" />
+    <Compile Include="Models\TelefoneView.cs" />
     <Compile Include="Models\TurmaView.cs" />
     <Compile Include="Oficina.cs">
       <DependentUpon>DatabaseEntidade.tt</DependentUpon>

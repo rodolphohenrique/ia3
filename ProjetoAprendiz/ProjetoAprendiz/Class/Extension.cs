@@ -19,7 +19,33 @@ namespace ProjetoAprendiz.Class
                 DataNascimento = (DateTime)data.DataNascimento,
                 DataInclusao = data.DataInclusao,
                 IdPessoaTipo = data.IdPessoaTipo,
-                Tipo = data.PessoaTipo.toPessoaTipo()
+                Tipo = data.PessoaTipo.toPessoaTipo(),
+                Telefone = data.Telefone.toTelefoneView(),
+                Endereco = data.Endereco.toEnderecoView()
+            };
+        }
+
+        public static TelefoneView toTelefoneView(this Telefone data)
+        {
+            return new TelefoneView()
+            {
+                NumeroFixo = data.NumeroFixo,
+                NumeroCelular = data.NumeroCelular
+            };
+        }
+    
+        public static EnderecoView toEnderecoView(this Endereco data)
+        {
+            return new EnderecoView()
+            {
+                Endereco = data.Endereco1,
+                Complemento = data.Complemento,
+                Numero = data.Numero,
+                Cidade = data.Cidade,
+                Estado = data.Estado,
+                Bairro = data.Bairro,
+                CEP = data.CEP,
+                Pais = data.Pais
             };
         }
 
